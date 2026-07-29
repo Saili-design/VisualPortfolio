@@ -885,6 +885,9 @@ nav.scrolled {
 .lb-desc { font-size:13px; color:#94a3b8; line-height:1.65; margin:0; }
 .lb-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
 .lb-chip { font-size:10px; font-weight:700; letter-spacing:.05em; padding:5px 12px; border-radius:999px; border:1px solid rgba(167,139,250,.28); color:#c4b5fd; background:rgba(167,139,250,.08); }
+.lb-skills { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:6px; }
+.lb-skills-label { width:100%; font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#64748b; margin-bottom:2px; }
+.lb-chip.skill { border-color:rgba(52,211,153,.28); color:#6ee7b7; background:rgba(52,211,153,.08); }
 .lb-map { flex-shrink:0; width:158px; align-self:center; }
 .lb-map svg { width:100%; height:auto; display:block; overflow:visible; }
 .lb-kpis { display:flex; gap:26px; flex-shrink:0; }
@@ -1964,10 +1967,11 @@ initSlideshow('slideshow-square', 'dots-square');
 const ALBUM_MAX = 12;
 const projects = [
   { tag:'Live Events · Rave', title:'Shield Run',
-    role:'Président du collectif · DA & communication',
-    desc:"Collectif événementiel que j'ai présidé. Des budgets lourds, jusqu'à 20 000 € par événement, à rembourser uniquement via les préventes. Ma réponse : un storytelling porté sur tout l'événement et des visuels qui donnent envie, pensés pour attirer un maximum de monde et vendre.",
+    role:'Président du collectif · DA & communication 360°',
+    desc:"Collectif événementiel que j'ai présidé. Des budgets lourds, jusqu'à 20 000 € par événement, à rembourser uniquement via les préventes. Ma réponse : un storytelling porté sur tout l'événement et des visuels qui donnent envie, pensés pour attirer un maximum de monde et vendre. Un projet 360° où j'ai mobilisé l'ensemble de mes compétences graphiques.",
     kpis:[['12 000','participants'],['20 000 €','budget / évént'],['+500K','vues'],['80%','sold-out']],
-    tags:['Réseaux sociaux','Flyers / Print','Video mapping'] },
+    tags:['Réseaux sociaux','Flyers / Print','Video mapping'],
+    skills:['Marketing','Communication','2D','3D','Animation','Montage vidéo','Motion design','Texturing'] },
   { tag:'Nightlife · Agence digitale', title:'Club Flyers',
     role:'Agence de communication digitale · Visuels multicanal',
     desc:"Flyers et visuels de soirée pour des clubs partout en France, en collaboration avec une agence de communication digitale. Des visuels pensés pour attirer un maximum de monde, déclinés en multicanal (cover, story, print), puis imprimés et distribués par les clubs.",
@@ -2039,6 +2043,11 @@ function openProject(n){
   roleEl.textContent = p.role || ''; roleEl.style.display = p.role ? '' : 'none';
   document.getElementById('lbDesc').textContent = p.desc;
   document.getElementById('lbTags').innerHTML = (p.tags || []).map(t => '<span class="lb-chip">' + t + '</span>').join('');
+  const skEl = document.getElementById('lbSkills');
+  if (p.skills && p.skills.length) {
+    skEl.innerHTML = '<span class="lb-skills-label">Compétences mobilisées</span>' + p.skills.map(t => '<span class="lb-chip skill">' + t + '</span>').join('');
+    skEl.style.display = '';
+  } else { skEl.innerHTML = ''; skEl.style.display = 'none'; }
   document.getElementById('lbKpis').innerHTML = p.kpis.map(k =>
     '<div class="lb-kpi"><span class="lb-kpi-n">' + k[0] + '</span><span class="lb-kpi-l">' + k[1] + '</span></div>').join('');
   const mapEl = document.getElementById('lbMap');
@@ -2135,6 +2144,7 @@ document.querySelectorAll('.skill-card').forEach(card=>{
         <div class="lb-role" id="lbRole"></div>
         <p class="lb-desc" id="lbDesc"></p>
         <div class="lb-tags" id="lbTags"></div>
+        <div class="lb-skills" id="lbSkills" style="display:none"></div>
       </div>
       <div class="lb-kpis" id="lbKpis"></div>
       <div class="lb-map" id="lbMap" style="display:none"></div>
