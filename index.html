@@ -879,8 +879,12 @@ nav.scrolled {
 .lb-main-wrap { flex:1; min-width:0; display:flex; align-items:center; justify-content:center; }
 .lb-main { max-width:100%; max-height:56vh; width:auto; height:auto; object-fit:contain; display:block; border-radius:14px; background:#0a0c16; border:1px solid rgba(255,255,255,.12); box-shadow:0 24px 70px rgba(0,0,0,.5); animation:lbSwap .35s ease; }
 /* Panneau description + KPI */
-.lb-meta { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; margin-top:16px; padding:14px 4px 0; border-top:1px solid rgba(255,255,255,.08); }
-.lb-desc { font-size:13px; color:#94a3b8; line-height:1.6; max-width:520px; margin:0; }
+.lb-meta { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:18px 32px; margin-top:16px; padding:16px 4px 0; border-top:1px solid rgba(255,255,255,.08); }
+.lb-metatext { display:flex; flex-direction:column; gap:9px; max-width:560px; }
+.lb-role { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#f472b6; }
+.lb-desc { font-size:13px; color:#94a3b8; line-height:1.65; margin:0; }
+.lb-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
+.lb-chip { font-size:10px; font-weight:700; letter-spacing:.05em; padding:5px 12px; border-radius:999px; border:1px solid rgba(167,139,250,.28); color:#c4b5fd; background:rgba(167,139,250,.08); }
 .lb-kpis { display:flex; gap:26px; flex-shrink:0; }
 .lb-kpi { display:flex; flex-direction:column; }
 .lb-kpi-n { font-size:24px; font-weight:900; letter-spacing:-.03em; background:linear-gradient(135deg,#a78bfa,#f472b6); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
@@ -1958,17 +1962,25 @@ initSlideshow('slideshow-square', 'dots-square');
 const ALBUM_MAX = 12;
 const projects = [
   { tag:'Live Events · Rave', title:'Shield Run',
-    desc:"Identité visuelle et campagne événementielle : de l'affiche aux réseaux, des visuels pensés pour remplir la salle.",
-    kpis:[['12 000','participants'],['+500K','vues'],['80%','sold-out']] },
+    role:'Président du collectif · DA & communication',
+    desc:"Collectif événementiel que j'ai présidé. Des budgets lourds, jusqu'à 20 000 € par événement, à rembourser uniquement via les préventes. Ma réponse : un storytelling porté sur tout l'événement et des visuels qui donnent envie, pensés pour attirer un maximum de monde et vendre.",
+    kpis:[['12 000','participants'],['20 000 €','budget / évént'],['+500K','vues'],['80%','sold-out']],
+    tags:['Réseaux sociaux','Flyers / Print','Video mapping'] },
   { tag:'Soirée électro · Nantes', title:'Mix & Match',
-    desc:"Concept sur le thème de la boxe : 12 collectifs, 24 artistes en B2B sur deux salles. Scénographie et communication de A à Z.",
-    kpis:[['800','participants'],['24','artistes'],['2','salles']] },
+    role:'Organisation & scénographie',
+    desc:"Concept sur le thème de la boxe : 12 collectifs, 24 artistes en B2B sur deux salles. Scénographie, booking et communication de A à Z.",
+    kpis:[['800','participants'],['24','artistes'],['2','salles']],
+    tags:['Scénographie','Booking artistes','Communication'] },
   { tag:'Brand Content', title:'Toyota & Lexus',
-    desc:"Contenus premium pour les lancements produits et événements, en motion et 3D, sous deadlines serrées.",
-    kpis:[['2','marques'],['2D · 3D','motion'],['2 sem.','deadlines']] },
+    role:'Contenus premium · Motion & 3D',
+    desc:"Contenus premium pour les lancements produits et événements des marques, en motion et 3D, sous deadlines serrées.",
+    kpis:[['2','marques'],['2D · 3D','motion'],['2 sem.','deadlines']],
+    tags:['Réseaux sociaux','Motion design','3D'] },
   { tag:'Studios & Agences', title:'International',
-    desc:"100+ projets de communication visuelle pour des agences et studios, en France, en Allemagne et en Chine.",
-    kpis:[['100+','projets'],['4,9/5','note'],['3+','pays']] },
+    role:'Agences & studios · 100+ projets',
+    desc:"100+ projets de communication visuelle pour des agences et studios internationaux, en France, en Allemagne et en Chine.",
+    kpis:[['100+','projets'],['4,9/5','note'],['3+','pays']],
+    tags:['Branding','Print','Digital'] },
 ];
 const albumImages = [[], [], [], []];
 function albOn(img, idx){ phOn(img); }
@@ -2000,7 +2012,10 @@ function openProject(n){
   lbImgs = imgs; lbCur = 0;
   document.getElementById('lbTag').textContent = p.tag;
   document.getElementById('lbTitle').textContent = p.title;
+  const roleEl = document.getElementById('lbRole');
+  roleEl.textContent = p.role || ''; roleEl.style.display = p.role ? '' : 'none';
   document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lbTags').innerHTML = (p.tags || []).map(t => '<span class="lb-chip">' + t + '</span>').join('');
   document.getElementById('lbKpis').innerHTML = p.kpis.map(k =>
     '<div class="lb-kpi"><span class="lb-kpi-n">' + k[0] + '</span><span class="lb-kpi-l">' + k[1] + '</span></div>').join('');
   const thumbs = document.getElementById('lbThumbs');
@@ -2090,7 +2105,11 @@ document.querySelectorAll('.skill-card').forEach(card=>{
       <button class="lb-nav lb-next" onclick="lbStep(1)" aria-label="Next image">›</button>
     </div>
     <div class="lb-meta">
-      <p class="lb-desc" id="lbDesc"></p>
+      <div class="lb-metatext">
+        <div class="lb-role" id="lbRole"></div>
+        <p class="lb-desc" id="lbDesc"></p>
+        <div class="lb-tags" id="lbTags"></div>
+      </div>
       <div class="lb-kpis" id="lbKpis"></div>
     </div>
     <div class="lb-thumbs" id="lbThumbs"></div>
