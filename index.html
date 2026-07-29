@@ -868,14 +868,31 @@ nav.scrolled {
 @keyframes lbFade { from{opacity:0} to{opacity:1} }
 .lb-backdrop { position:absolute; inset:0; background:rgba(4,6,14,.9); backdrop-filter:blur(10px); }
 .lb-inner { position:relative; z-index:2; width:min(1180px,94vw); max-height:90vh; display:flex; flex-direction:column; }
-/* Barre de titre + compteur (indépendant du format) */
-.lb-titlebar { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:16px; }
-.lb-title { font-size:14px; font-weight:800; letter-spacing:.18em; color:#a78bfa; font-family:'JetBrains Mono',monospace; }
-.lb-counter { font-size:11px; font-weight:700; letter-spacing:.1em; color:#cbd5e1; background:rgba(255,255,255,.06); padding:4px 11px; border-radius:20px; border:1px solid rgba(255,255,255,.12); font-family:'JetBrains Mono',monospace; }
+/* Entête projet : tag + titre + compteur */
+.lb-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px; }
+.lb-headtext { display:flex; flex-direction:column; gap:4px; text-align:left; }
+.lb-tag { font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#a78bfa; }
+.lb-title { font-size:22px; font-weight:900; letter-spacing:-.02em; color:#f8fafc; line-height:1; }
+.lb-counter { flex-shrink:0; font-size:11px; font-weight:700; letter-spacing:.1em; color:#cbd5e1; background:rgba(255,255,255,.06); padding:5px 12px; border-radius:20px; border:1px solid rgba(255,255,255,.12); font-family:'JetBrains Mono',monospace; }
 /* Stage : l'image s'affiche dans son format réel (carré, paysage, A4/A5…) */
-.lb-stage { display:flex; align-items:center; justify-content:center; gap:14px; min-height:42vh; }
+.lb-stage { display:flex; align-items:center; justify-content:center; gap:14px; min-height:38vh; }
 .lb-main-wrap { flex:1; min-width:0; display:flex; align-items:center; justify-content:center; }
-.lb-main { max-width:100%; max-height:74vh; width:auto; height:auto; object-fit:contain; display:block; border-radius:14px; background:#0a0c16; border:1px solid rgba(255,255,255,.12); box-shadow:0 24px 70px rgba(0,0,0,.5); animation:lbSwap .35s ease; }
+.lb-main { max-width:100%; max-height:56vh; width:auto; height:auto; object-fit:contain; display:block; border-radius:14px; background:#0a0c16; border:1px solid rgba(255,255,255,.12); box-shadow:0 24px 70px rgba(0,0,0,.5); animation:lbSwap .35s ease; }
+/* Panneau description + KPI */
+.lb-meta { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; margin-top:16px; padding:14px 4px 0; border-top:1px solid rgba(255,255,255,.08); }
+.lb-desc { font-size:13px; color:#94a3b8; line-height:1.6; max-width:520px; margin:0; }
+.lb-kpis { display:flex; gap:26px; flex-shrink:0; }
+.lb-kpi { display:flex; flex-direction:column; }
+.lb-kpi-n { font-size:24px; font-weight:900; letter-spacing:-.03em; background:linear-gradient(135deg,#a78bfa,#f472b6); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+.lb-kpi-l { font-size:9px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#64748b; margin-top:4px; }
+/* Tuiles projet cliquables */
+.project-tile { cursor:pointer; }
+.project-tile:not(.has-images) { cursor:default; }
+.tile-overlay { position:absolute; left:0; right:0; bottom:0; z-index:4; padding:16px 14px 12px; display:flex; flex-direction:column; gap:2px; background:linear-gradient(to top, rgba(6,8,18,.92), rgba(6,8,18,.35) 60%, transparent); pointer-events:none; }
+.tile-title { font-size:15px; font-weight:800; color:#fff; letter-spacing:.01em; }
+.tile-cta { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#c4b5fd; opacity:0; transform:translateY(4px); transition:opacity .3s, transform .3s; }
+.project-tile.has-images:hover .tile-cta { opacity:1; transform:translateY(0); }
+@media (max-width:640px){ .lb-meta{ flex-direction:column; align-items:flex-start; } .lb-kpis{ gap:20px; } }
 @keyframes lbSwap { from{opacity:0; transform:scale(1.02)} to{opacity:1; transform:scale(1)} }
 .lb-nav { flex-shrink:0; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:#fff; font-size:26px; line-height:1; cursor:pointer; transition:background .2s, transform .2s; display:flex; align-items:center; justify-content:center; }
 .lb-nav:hover { background:rgba(167,139,250,.35); transform:scale(1.08); }
@@ -1116,10 +1133,26 @@ nav.scrolled {
       <p class="pb-body" style="text-align:center;max-width:560px;margin:0 auto">Just a small selection of my work, and not even my most important pieces. My full archive lives on Behance.</p>
     </div>
     <div class="teaser-grid">
-      <div class="teaser-tile has-ph"><div class="pb-texture"></div><div class="pb-img-label">teaser-1.jpg</div><img class="pf-img" src="images/teaser-1.jpg" alt="" loading="lazy" onload="phOn(this)" onerror="phMiss(this)"/></div>
-      <div class="teaser-tile has-ph"><div class="pb-texture"></div><div class="pb-img-label">teaser-2.jpg</div><img class="pf-img" src="images/teaser-2.jpg" alt="" loading="lazy" onload="phOn(this)" onerror="phMiss(this)"/></div>
-      <div class="teaser-tile has-ph"><div class="pb-texture"></div><div class="pb-img-label">teaser-3.jpg</div><img class="pf-img" src="images/teaser-3.jpg" alt="" loading="lazy" onload="phOn(this)" onerror="phMiss(this)"/></div>
-      <div class="teaser-tile has-ph"><div class="pb-texture"></div><div class="pb-img-label">teaser-4.jpg</div><img class="pf-img" src="images/teaser-4.jpg" alt="" loading="lazy" onload="phOn(this)" onerror="phMiss(this)"/></div>
+      <div class="teaser-tile project-tile has-ph" data-project="1" tabindex="0" role="button" aria-label="Open Shield Run album">
+        <div class="pb-texture"></div><div class="pb-img-label">album-1-1.jpg</div>
+        <img class="pf-img" src="images/album-1-1.jpg" alt="" loading="lazy" onload="albOn(this,0)" onerror="phMiss(this)"/>
+        <div class="tile-overlay"><span class="tile-title">Shield Run</span><span class="tile-cta">View album →</span></div>
+      </div>
+      <div class="teaser-tile project-tile has-ph" data-project="2" tabindex="0" role="button" aria-label="Open Mix & Match album">
+        <div class="pb-texture"></div><div class="pb-img-label">album-2-1.jpg</div>
+        <img class="pf-img" src="images/album-2-1.jpg" alt="" loading="lazy" onload="albOn(this,1)" onerror="phMiss(this)"/>
+        <div class="tile-overlay"><span class="tile-title">Mix &amp; Match</span><span class="tile-cta">View album →</span></div>
+      </div>
+      <div class="teaser-tile project-tile has-ph" data-project="3" tabindex="0" role="button" aria-label="Open Toyota & Lexus album">
+        <div class="pb-texture"></div><div class="pb-img-label">album-3-1.jpg</div>
+        <img class="pf-img" src="images/album-3-1.jpg" alt="" loading="lazy" onload="albOn(this,2)" onerror="phMiss(this)"/>
+        <div class="tile-overlay"><span class="tile-title">Toyota &amp; Lexus</span><span class="tile-cta">View album →</span></div>
+      </div>
+      <div class="teaser-tile project-tile has-ph" data-project="4" tabindex="0" role="button" aria-label="Open International album">
+        <div class="pb-texture"></div><div class="pb-img-label">album-4-1.jpg</div>
+        <img class="pf-img" src="images/album-4-1.jpg" alt="" loading="lazy" onload="albOn(this,3)" onerror="phMiss(this)"/>
+        <div class="tile-overlay"><span class="tile-title">International</span><span class="tile-cta">View album →</span></div>
+      </div>
     </div>
     <div style="text-align:center;margin-top:40px">
       <a href="https://www.behance.net/saili_design" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:999px;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(135deg,#7c3aed,#db2777);box-shadow:0 8px 28px rgba(124,58,237,.35);text-decoration:none">View all my projects on Behance →</a>
@@ -1135,6 +1168,9 @@ nav.scrolled {
   <div class="inner-label section-wrap">
     <p class="eyebrow reveal" style="color:#fbbf24">Client Reviews</p>
     <h2 class="section-title reveal reveal-delay-1">What they say</h2>
+    <div class="reveal reveal-delay-2" style="margin-top:18px">
+      <a href="https://fr.fiverr.com/elforkani?public_mode=true" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;background:#1DBF73;box-shadow:0 8px 26px rgba(29,191,115,.3);text-decoration:none">✔ See the real reviews on Fiverr →</a>
+    </div>
   </div>
   <div class="reviews-outer">
     <div class="reviews-track" id="reviewsTrack">
@@ -1920,10 +1956,22 @@ function initSlideshow(slideshowId, dotsId) {
 initSlideshow('slideshow-landscape', 'dots-landscape');
 initSlideshow('slideshow-square', 'dots-square');
 
-/* ── GALLERY PROJECTS — auto-loaded from /images/ + viewer ───────── */
-const ALBUM_MAX = 10;                                    // 10 images per project
-const albumTitles = ['Album_1', 'Album_2', 'Album_3', 'Album_4'];
-const PREVIEW_THUMBS = 3;                                // images shown on the closed card
+/* ── PROJECTS (mini-albums auto-loaded from /images/) ─────────────── */
+const ALBUM_MAX = 12;
+const projects = [
+  { tag:'Live Events · Rave', title:'Shield Run',
+    desc:"Identité visuelle et campagne événementielle : de l'affiche aux réseaux, des visuels pensés pour remplir la salle.",
+    kpis:[['12 000','participants'],['+500K','vues'],['80%','sold-out']] },
+  { tag:'Soirée électro · Nantes', title:'Mix & Match',
+    desc:"Concept sur le thème de la boxe : 12 collectifs, 24 artistes en B2B sur deux salles. Scénographie et communication de A à Z.",
+    kpis:[['800','participants'],['24','artistes'],['2','salles']] },
+  { tag:'Brand Content', title:'Toyota & Lexus',
+    desc:"Contenus premium pour les lancements produits et événements, en motion et 3D, sous deadlines serrées.",
+    kpis:[['2','marques'],['2D · 3D','motion'],['2 sem.','deadlines']] },
+  { tag:'Studios & Agences', title:'International',
+    desc:"100+ projets de communication visuelle pour des agences et studios, en France, en Allemagne et en Chine.",
+    kpis:[['100+','projets'],['4,9/5','note'],['3+','pays']] },
+];
 const albumImages = [[], [], [], []];
 function albOn(img, idx){ phOn(img); }
 function probeAlbum(idx){
@@ -1932,11 +1980,8 @@ function probeAlbum(idx){
     if (--pending) return;
     found.sort((a, b) => a.i - b.i);
     albumImages[idx] = found.map(f => f.src);
-    const cnt = found.length;
-    const moreEl = document.getElementById('album-more-' + idx);
-    if (moreEl && cnt > PREVIEW_THUMBS) moreEl.textContent = '+' + (cnt - PREVIEW_THUMBS);
-    const card = document.querySelector('.album-card[data-idx="' + idx + '"]');
-    if (card && cnt) card.classList.add('has-images');
+    const tile = document.querySelector('.project-tile[data-project="' + n + '"]');
+    if (tile && found.length) tile.classList.add('has-images');
   };
   for (let i = 1; i <= ALBUM_MAX; i++) {
     const im = new Image();
@@ -1945,16 +1990,21 @@ function probeAlbum(idx){
     im.src = 'images/album-' + n + '-' + i + '.jpg';
   }
 }
-/* albums retirés — teaser + redirection Behance */
+for (let i = 0; i < 4; i++) probeAlbum(i);
 
-/* ── Project viewer (big landscape image + thumbnail strip) ── */
+/* ── Project album viewer (big image + thumbnails + KPIs) ── */
 let lbImgs = [], lbCur = 0;
-function openLightbox(n){
+function openProject(n){
   const idx = n - 1;
   const imgs = albumImages[idx];
   if (!imgs || !imgs.length) return;
+  const p = projects[idx];
   lbImgs = imgs; lbCur = 0;
-  document.getElementById('lbTitle').textContent = albumTitles[idx];
+  document.getElementById('lbTag').textContent = p.tag;
+  document.getElementById('lbTitle').textContent = p.title;
+  document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lbKpis').innerHTML = p.kpis.map(k =>
+    '<div class="lb-kpi"><span class="lb-kpi-n">' + k[0] + '</span><span class="lb-kpi-l">' + k[1] + '</span></div>').join('');
   const thumbs = document.getElementById('lbThumbs');
   thumbs.innerHTML = imgs.map((s, i) =>
     '<img src="' + s + '" data-i="' + i + '" class="lb-thumb" alt="" loading="lazy">').join('');
@@ -1980,10 +2030,10 @@ function closeLightbox(){
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.querySelectorAll('.album-card').forEach(card => {
-  const n = +card.dataset.album;
-  card.addEventListener('click', () => openLightbox(n));
-  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(n); } });
+document.querySelectorAll('.project-tile').forEach(tile => {
+  const n = +tile.dataset.project;
+  tile.addEventListener('click', () => openProject(n));
+  tile.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(n); } });
 });
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lightbox').classList.contains('open')) return;
@@ -2027,8 +2077,11 @@ document.querySelectorAll('.skill-card').forEach(card=>{
   <div class="lb-backdrop" onclick="closeLightbox()"></div>
   <button class="lb-close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
   <div class="lb-inner">
-    <div class="lb-titlebar">
-      <span class="lb-title" id="lbTitle"></span>
+    <div class="lb-head">
+      <div class="lb-headtext">
+        <span class="lb-tag" id="lbTag"></span>
+        <span class="lb-title" id="lbTitle"></span>
+      </div>
       <span class="lb-counter" id="lbCounter"></span>
     </div>
     <div class="lb-stage">
@@ -2037,6 +2090,10 @@ document.querySelectorAll('.skill-card').forEach(card=>{
         <img id="lbMain" class="lb-main" src="" alt=""/>
       </div>
       <button class="lb-nav lb-next" onclick="lbStep(1)" aria-label="Next image">›</button>
+    </div>
+    <div class="lb-meta">
+      <p class="lb-desc" id="lbDesc"></p>
+      <div class="lb-kpis" id="lbKpis"></div>
     </div>
     <div class="lb-thumbs" id="lbThumbs"></div>
   </div>
