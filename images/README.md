@@ -33,16 +33,17 @@ placeholder (dimension + nom de fichier attendu) reste affiché à sa place.
 - `format-banner.jpg`  → 1920 × 1080  (Banner / Cover)
 - `format-print.jpg`   → A4 (Print Flyer)
 
-## 5 · Galerie projets (clic = visualiseur plein écran)
-**4 projets × 10 images** numérotées. Sur la carte fermée on voit les **3 premières images** (miniatures).
-Au clic : grande image landscape + bande de toutes les images en bas (clic = affichage en grand, flèches ←/→).
+## 5 · Projets (mini-albums cliquables)
+**4 projets**, jusqu'à **12 images chacun**. La **1ʳᵉ image** (`album-N-1.jpg`) sert de **couverture** sur la tuile. Au clic : grande image + bande de toutes les images en bas (clic pour agrandir, flèches ←/→) + titre, description et KPI.
 
-| Projet   | Fichiers                                             |
-|----------|------------------------------------------------------|
-| Album_1  | `album-1-1.jpg` → `album-1-10.jpg` (les 3 premières = miniatures) |
-| Album_2  | `album-2-1.jpg` → `album-2-10.jpg`                   |
-| Album_3  | `album-3-1.jpg` → `album-3-10.jpg`                   |
-| Album_4  | `album-4-1.jpg` → `album-4-10.jpg`                   |
+| Tuile / Projet | Couverture      | Images de l'album              |
+|----------------|-----------------|--------------------------------|
+| 1 · Shield Run     | `album-1-1.jpg` | `album-1-1.jpg` → `album-1-12.jpg` |
+| 2 · Mix & Match    | `album-2-1.jpg` | `album-2-1.jpg` → `album-2-12.jpg` |
+| 3 · Toyota & Lexus | `album-3-1.jpg` | `album-3-1.jpg` → `album-3-12.jpg` |
+| 4 · International   | `album-4-1.jpg` | `album-4-1.jpg` → `album-4-12.jpg` |
+
+> Les **titres, descriptions et chiffres (KPI)** de chaque projet se modifient dans le tableau `projects` du `<script>` de `index.html` (cherche « PROJECTS (mini-albums »). J'ai pré-rempli avec tes vrais projets — vérifie/ajuste les chiffres.
 
 > 🖼️ **Tous les formats sont acceptés dans un même album** : carré (1080×1080), paysage (1920×1080), A4/A5 portrait, etc. Le viewer s'adapte automatiquement au format de chaque image — au clic, l'image s'affiche **telle quelle, en entier, sans rognage**, et les miniatures reflètent leur format réel. Aucun redimensionnement à faire de ton côté.
 
