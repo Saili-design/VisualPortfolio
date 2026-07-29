@@ -885,6 +885,8 @@ nav.scrolled {
 .lb-desc { font-size:13px; color:#94a3b8; line-height:1.65; margin:0; }
 .lb-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
 .lb-chip { font-size:10px; font-weight:700; letter-spacing:.05em; padding:5px 12px; border-radius:999px; border:1px solid rgba(167,139,250,.28); color:#c4b5fd; background:rgba(167,139,250,.08); }
+.lb-map { flex-shrink:0; width:158px; align-self:center; }
+.lb-map svg { width:100%; height:auto; display:block; overflow:visible; }
 .lb-kpis { display:flex; gap:26px; flex-shrink:0; }
 .lb-kpi { display:flex; flex-direction:column; }
 .lb-kpi-n { font-size:24px; font-weight:900; letter-spacing:-.03em; background:linear-gradient(135deg,#a78bfa,#f472b6); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
@@ -1966,11 +1968,12 @@ const projects = [
     desc:"Collectif événementiel que j'ai présidé. Des budgets lourds, jusqu'à 20 000 € par événement, à rembourser uniquement via les préventes. Ma réponse : un storytelling porté sur tout l'événement et des visuels qui donnent envie, pensés pour attirer un maximum de monde et vendre.",
     kpis:[['12 000','participants'],['20 000 €','budget / évént'],['+500K','vues'],['80%','sold-out']],
     tags:['Réseaux sociaux','Flyers / Print','Video mapping'] },
-  { tag:'Soirée électro · Nantes', title:'Mix & Match',
-    role:'Organisation & scénographie',
-    desc:"Concept sur le thème de la boxe : 12 collectifs, 24 artistes en B2B sur deux salles. Scénographie, booking et communication de A à Z.",
-    kpis:[['800','participants'],['24','artistes'],['2','salles']],
-    tags:['Scénographie','Booking artistes','Communication'] },
+  { tag:'Nightlife · Agence digitale', title:'Club Flyers',
+    role:'Agence de communication digitale · Visuels multicanal',
+    desc:"Flyers et visuels de soirée pour des clubs partout en France, en collaboration avec une agence de communication digitale. Des visuels pensés pour attirer un maximum de monde, déclinés en multicanal (cover, story, print), puis imprimés et distribués par les clubs.",
+    kpis:[['4','villes'],['3','formats'],['Print','distribué']],
+    tags:['Cover 1080×1080','Story','Print / Flyers'],
+    cities:['Paris','Nantes','Lille','Marseille'] },
   { tag:'Brand Content', title:'Toyota & Lexus',
     role:'Contenus premium · Motion & 3D',
     desc:"Contenus premium pour les lancements produits et événements des marques, en motion et 3D, sous deadlines serrées.",
@@ -1983,6 +1986,26 @@ const projects = [
     tags:['Branding','Print','Digital'] },
 ];
 const albumImages = [[], [], [], []];
+/* Mini-carte France (l'Hexagone) avec villes qui pulsent */
+const CITY_XY = {
+  'Lille':    { x:120, y:44,  lx:129, ly:45,  a:'start' },
+  'Paris':    { x:109, y:80,  lx:118, ly:80,  a:'start' },
+  'Nantes':   { x:57,  y:110, lx:49,  ly:110, a:'end' },
+  'Marseille':{ x:139, y:158, lx:132, ly:171, a:'end' },
+};
+function renderMap(cities){
+  const hex = '<path d="M108 20 L172 72 L150 168 L90 194 L32 148 L40 64 Z" fill="rgba(167,139,250,.06)" stroke="rgba(167,139,250,.35)" stroke-width="1.6" stroke-linejoin="round"/>';
+  const marks = cities.map((c, i) => {
+    const p = CITY_XY[c]; if (!p) return '';
+    const beg = (i * 0.4).toFixed(1) + 's';
+    return '<circle cx="'+p.x+'" cy="'+p.y+'" r="3" fill="none" stroke="#f472b6" stroke-width="1.5">'
+      + '<animate attributeName="r" values="3;13" dur="2s" begin="'+beg+'" repeatCount="indefinite"/>'
+      + '<animate attributeName="opacity" values=".8;0" dur="2s" begin="'+beg+'" repeatCount="indefinite"/></circle>'
+      + '<circle cx="'+p.x+'" cy="'+p.y+'" r="3.6" fill="#f472b6"/>'
+      + '<text x="'+p.lx+'" y="'+p.ly+'" fill="#e2e8f0" font-size="10.5" font-weight="700" text-anchor="'+p.a+'" dominant-baseline="middle" font-family="Inter,sans-serif">'+c+'</text>';
+  }).join('');
+  return '<svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">'+hex+marks+'</svg>';
+}
 function albOn(img, idx){ phOn(img); }
 function probeAlbum(idx){
   const n = idx + 1; let pending = ALBUM_MAX; const found = [];
@@ -2018,6 +2041,9 @@ function openProject(n){
   document.getElementById('lbTags').innerHTML = (p.tags || []).map(t => '<span class="lb-chip">' + t + '</span>').join('');
   document.getElementById('lbKpis').innerHTML = p.kpis.map(k =>
     '<div class="lb-kpi"><span class="lb-kpi-n">' + k[0] + '</span><span class="lb-kpi-l">' + k[1] + '</span></div>').join('');
+  const mapEl = document.getElementById('lbMap');
+  if (p.cities && p.cities.length) { mapEl.innerHTML = renderMap(p.cities); mapEl.style.display = ''; }
+  else { mapEl.innerHTML = ''; mapEl.style.display = 'none'; }
   const thumbs = document.getElementById('lbThumbs');
   thumbs.innerHTML = imgs.map((s, i) =>
     '<img src="' + s + '" data-i="' + i + '" class="lb-thumb" alt="" loading="lazy">').join('');
@@ -2111,6 +2137,7 @@ document.querySelectorAll('.skill-card').forEach(card=>{
         <div class="lb-tags" id="lbTags"></div>
       </div>
       <div class="lb-kpis" id="lbKpis"></div>
+      <div class="lb-map" id="lbMap" style="display:none"></div>
     </div>
     <div class="lb-thumbs" id="lbThumbs"></div>
   </div>
