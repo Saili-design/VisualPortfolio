@@ -609,6 +609,79 @@ body{font-family:var(--b)}
 .igtx small{display:block;color:#a8a8a8;font-size:3cqw;margin-top:.6cqw}
 @media(max-width:1020px){.lk a{font-size:clamp(28px,7vw,60px)}}
 @media(max-width:700px){.lk a{font-size:clamp(26px,9vw,48px)}}
+
+/* hero play */
+.hlt{display:flex;flex-direction:column;gap:clamp(12px,2.2vh,22px);align-items:flex-start}
+.hplay{display:inline-flex;align-items:center;gap:11px;padding:10px 13px;border:1px solid var(--s);color:var(--p);transition:background .1s steps(2),color .1s steps(2)}
+.hplay em{font-style:normal;opacity:.7}
+.hplay i{display:flex;gap:3px;align-items:flex-end;height:14px}
+.hplay b{display:block;width:8px;height:8px;border-radius:50%;background:var(--s);animation:hpb 1.2s var(--e) infinite}
+.hplay b:nth-child(2){animation-delay:.14s}.hplay b:nth-child(3){animation-delay:.28s}
+@keyframes hpb{0%,60%,100%{transform:none}30%{transform:translateY(-6px)}}
+.hplay:hover{background:var(--s);color:var(--si)}.hplay:hover b{background:var(--si)}
+@media(prefers-reduced-motion:reduce){.hplay b{animation:none}}
+/* impact, lieux */
+.strip span{display:flex;align-items:center;height:100%;padding:0 .5em;border:1px solid var(--l);font:700 clamp(40px,9vh,96px)/1 'Saira Extra Condensed',sans-serif;text-transform:uppercase;white-space:nowrap}
+/* marques : barre collante, jamais recouverte par le titre */
+.abw{position:sticky;top:var(--top);z-index:30;background:var(--k);padding:8px 0 3px;margin-top:clamp(10px,2.4vh,24px)}
+.abp{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--cc,var(--s));transform:scaleX(0);transform-origin:0 50%}
+.abr{position:relative;display:grid;grid-template-columns:auto repeat(4,minmax(0,1fr));gap:1px;background:var(--l);border:1px solid var(--l)}
+.abh{display:flex;align-items:center;gap:9px;padding:0 14px;background:var(--k)}.abh b{font-weight:400}
+.abh u{display:flex;gap:2px;text-decoration:none}.abh u i{display:block;width:7px;height:7px;border-top:2px solid var(--p);border-right:2px solid var(--p);transform:rotate(45deg);animation:skA 1.2s steps(2) infinite}.abh u i:nth-child(2){animation-delay:.2s}.abh u i:nth-child(3){animation-delay:.4s}
+.abr button{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 14px;background:var(--k);text-align:left;font:inherit;text-transform:inherit;letter-spacing:inherit;transition:color .18s,transform .12s}
+.abr button::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--c);transform:scaleX(0);transform-origin:0 50%;transition:transform .32s var(--e)}
+.abr button::after{content:'';position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:skewX(-18deg);animation:abS 3.4s calc(var(--n)*.5s) infinite;pointer-events:none}
+.abr button>i{width:14px;height:14px;flex:none;background:var(--c);animation:abP 1.6s calc(var(--n)*.25s) infinite}
+.abr button>em{margin-left:auto;font-style:normal}.abr button>em::after{content:'\2192';display:inline-block;animation:abN 1.2s calc(var(--n)*.15s) infinite}
+.abr button:hover,.abr button:focus-visible,.abr button.a{color:var(--ci)}
+.abr button:hover::before,.abr button:focus-visible::before,.abr button.a::before{transform:none}
+.abr button:hover>i,.abr button.a>i{background:var(--ci);animation:none}
+.abr button:active{transform:translateY(1px)}
+.abr button.a::after{display:none}.abr button.a>em::after{content:'\25CF';animation:none}
+.abr button:focus-visible{outline:2px solid var(--p);outline-offset:-4px}
+@keyframes abS{0%{left:-40%}45%,100%{left:120%}}
+@keyframes abP{0%,100%{transform:none}50%{transform:scale(.62)}}
+@keyframes abN{0%,100%{transform:none}50%{transform:translateX(5px)}}
+#ad,#ad .sh{scroll-margin-top:var(--top)}
+/* fin de projet */
+.abe{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:clamp(32px,7vh,80px);padding-top:14px;border-top:1px solid var(--l)}
+.abe1{color:var(--p)}
+.abx{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 18px;width:100%;padding:clamp(16px,3vh,30px) clamp(16px,2.4vw,34px);background:var(--c);color:var(--ci);text-align:left;font:inherit;transition:color .18s}
+.abx::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--p);transform:scaleY(0);transform-origin:50% 100%;transition:transform .34s var(--e)}
+.abx:hover{color:var(--k)}.abx:hover::before{transform:none}
+.abx span{grid-column:1}.abx strong{grid-column:1;font:800 clamp(44px,8.5vw,150px)/.9 var(--d);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+.abx em{grid-column:2;grid-row:1/3;display:flex;gap:6px;font-style:normal}
+.abx em i{display:block;width:clamp(16px,2.6vw,38px);height:clamp(16px,2.6vw,38px);border-top:clamp(4px,.6vw,8px) solid currentColor;border-right:clamp(4px,.6vw,8px) solid currentColor;transform:rotate(45deg);animation:skA 1.2s steps(2) infinite}
+.abx em i:nth-child(2){animation-delay:.2s}.abx em i:nth-child(3){animation-delay:.4s}
+.abg{justify-self:end;padding:6px 0;opacity:.72}.abg:hover{opacity:1;color:var(--s)}
+/* competences */
+.skw{min-width:0}
+.skh{display:flex;align-items:center;gap:12px;padding-bottom:7px;white-space:nowrap}.skh>span:first-child{color:var(--s);font-weight:600}
+.ska{flex:1;display:flex;justify-content:space-between;align-items:center;height:12px;min-width:0;overflow:hidden;padding-right:2px}
+.ska i{display:block;width:8px;height:8px;border-right:2px solid var(--s);border-bottom:2px solid var(--s);transform:translateY(-2px) rotate(45deg);animation:skA 2s calc(var(--n)*.13s) infinite}
+@keyframes skA{0%,100%{opacity:.16}35%{opacity:1}}
+.dl button{padding-top:clamp(2px,.55vh,8px);padding-bottom:clamp(2px,.55vh,8px)}
+/* social : formats reels */
+.tri.g{display:flex;align-items:center;justify-content:center;gap:clamp(6px,1vw,14px);padding:0 clamp(4px,1vw,12px)}
+.gi{min-width:0;opacity:.55;filter:grayscale(.55)}.gi.on{opacity:1;filter:none;animation:triF .28s steps(1)}
+.gi img{display:block;width:100%;height:auto}.gi span{display:block;padding-top:5px;font-size:10px}
+@media(min-width:1021px) and (max-height:820px){.hl>p.mono{display:none}.hl{gap:8px}.hl .lead{font-size:clamp(18px,2vw,26px)}.hplay{padding:6px 10px}.hlt{gap:8px}.dl button{padding-top:1px;padding-bottom:1px;font-size:11px;line-height:1.35}.skh{padding-bottom:4px}}
+/* affiches : defilement */
+.cvy{overflow:hidden;background:transparent}
+.cvt{position:absolute;left:0;top:0;bottom:0;width:100%;will-change:transform;transition:transform .9s cubic-bezier(.76,0,.18,1)}
+.cvt img{position:absolute;top:50%;transform:translateY(-50%) scale(.88);opacity:.32;filter:saturate(.45);transition:transform .9s cubic-bezier(.76,0,.18,1),opacity .6s,filter .6s;object-fit:cover;background:#000}
+.cvt img.on{transform:translateY(-50%);opacity:1;filter:none}
+.cvc{position:absolute;left:8px;bottom:6px;padding:3px 7px;background:var(--k);font-size:11px}
+@media(prefers-reduced-motion:reduce){.abr button::after,.abr button>i,.abr button>em::after,.ska i,.abx em i,.abh u i{animation:none}}
+#ad .adh{margin-top:clamp(20px,4vh,44px)}
+#afm{display:flex;flex-direction:column;gap:clamp(14px,2vw,28px)}
+#pal div{transform:none;animation:palU .55s steps(8) backwards;animation-delay:calc(var(--n)*70ms);transform-origin:50% 100%}@keyframes palU{from{transform:scaleY(0)}to{transform:none}}
+.afr{display:flex;gap:clamp(8px,1.2vw,18px);align-items:flex-end}
+.afr figure{min-width:0;margin:0}
+.afr img,.afr video{display:block;width:100%;height:auto;background:#000}
+.afr figcaption{display:flex;justify-content:space-between;gap:8px;padding-top:7px;white-space:nowrap;overflow:hidden}
+
+@media(max-width:760px){.abh{display:none}.abr{grid-template-columns:repeat(4,minmax(0,1fr))}.abr button{min-height:42px;padding:6px 7px;gap:6px;font-size:10px;line-height:1.15}.abr button>i{width:9px;height:9px}.abr button>em{display:none}.abx strong{white-space:normal}.adg .c6,.adg .c7,.adg .c5{grid-column:span 12}.afr{flex-wrap:wrap;align-items:flex-start}.afr figure{flex:1 1 44%!important}}
 </style>
 </head>
 <body class="lock">
@@ -633,10 +706,10 @@ body{font-family:var(--b)}
   <a class="lg" href="#hero" aria-label="Haut de page" data-cur="TOP"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="16" cy="16" r="8.5"/><path d="M16 1v30M1 16h30"/></svg></a>
   <div class="who mono">Ilias El Forkani</div>
   <nav id="nav" class="mono">
+    <a href="#ad"><span data-k="n_ad"></span> <b>[↗]</b></a>
     <a href="#work"><span data-k="n_work"></span> <b>[↗]</b></a>
     <a href="#motion"><span>Motion</span> <b>[↗]</b></a>
     <a href="#print"><span>Print</span> <b>[↗]</b></a>
-    <a href="#ad"><span data-k="n_ad"></span> <b>[↗]</b></a>
     <a href="#ig"><span>IG Lab</span> <b>[↗]</b></a>
     <a href="#archive"><span>Archive</span> <b>[↗]</b></a>
     <a href="#ref"><span data-k="n_ref"></span> <b>[↗]</b></a>
@@ -657,8 +730,9 @@ body{font-family:var(--b)}
   <div class="hg">
     <div class="hl">
       <p class="mono" data-dec data-k="h_k"></p>
-      <p class="lead" data-k="h_lead"></p>
-      <ul class="dl mono" id="dl"></ul>
+      <div class="hlt"><p class="lead" data-k="h_lead"></p>
+      <a class="hplay mono" href="#stack" data-cur="PLAY"><i aria-hidden="true"><b></b><b></b><b></b></i><span data-k="h_play"></span><em aria-hidden="true">[↓]</em></a></div>
+      <div class="skw"><div class="skh mono"><span data-k="h_sk"></span><span class="ska" aria-hidden="true"><i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i><i style="--n:3"></i><i style="--n:4"></i><i style="--n:5"></i><i style="--n:6"></i><i style="--n:7"></i><i style="--n:8"></i><i style="--n:9"></i></span></div><ul class="dl mono" id="dl"></ul></div>
     </div>
     <div class="hf">
       <div class="fw"><div class="frame" id="hfr"></div><i class="cm tl"></i><i class="cm tr"></i><i class="cm bl"></i><i class="cm br"></i></div>
@@ -692,9 +766,54 @@ body{font-family:var(--b)}
   </div>
 </section>
 
+<!-- ART DIRECTION -->
+<section id="ad" class="wrap" data-l="Art direction" data-takeover="#34AA28">
+  <div class="sh mono"><span data-dec>[02]</span><span data-k="n_ad"></span><i></i><span class="dim" data-k="a_h"></span></div>
+  <div class="abw" id="abw"><div class="abr mono" id="abr" role="tablist"></div><i class="abp" id="abp"></i></div>
+  <div class="adh">
+    <div>
+      <h2 class="t gx" id="abn">4 Blooms</h2>
+      <p class="lead" style="margin-top:18px" id="abl"></p>
+      <p class="mono dim" style="margin-top:12px" id="abt"></p>
+    </div>
+  </div>
+  <div class="adg" id="adg">
+    <div class="cell c7">
+      <div class="mono"><span>01 // Logo</span><span class="dim" id="alc"></span></div>
+      <div class="tabs mono" id="atb"></div>
+      <img class="adi" id="aim" alt="" width="1600" height="1000">
+    </div>
+    <div class="cell c5">
+      <div class="mono"><span>02 // Palette</span><span class="dim" id="apc"></span></div>
+      <div class="pal mono in" id="pal"></div>
+    </div>
+    <div class="cell c6">
+      <div class="mono"><span>03 // Type</span><span class="dim" id="atc"></span></div>
+      <img class="adi" id="aty" alt="" width="1600" height="1000">
+    </div>
+    <div class="cell c6">
+      <div class="mono"><span>04 // <span data-k="a_sy"></span></span><span class="dim" id="asc"></span></div>
+      <img class="adi" id="asy" alt="" width="1600" height="1000">
+    </div>
+    <div class="cell c12">
+      <div class="mono"><span>05 // <span data-k="a_su"></span></span><span class="dim" data-k="a_sn"></span></div>
+      <img class="adi" id="asu" alt="" width="1600" height="1000" data-cur="NEXT">
+    </div>
+    <div class="cell c12">
+      <div class="mono"><span>06 // <span data-k="a_fm"></span></span><span class="dim" data-k="a_fn"></span></div>
+      <div id="afm"></div>
+    </div>
+  </div>
+  <div class="abe" id="abe">
+    <p class="mono abe1"><span data-k="a_end"></span> // <span id="abe1"></span></p>
+    <button class="abx" id="abx" data-cur="NEXT"><span class="mono" data-k="a_nx"></span><strong id="abxn"></strong><em aria-hidden="true"><i></i><i></i><i></i></em></button>
+    <a class="abg mono" href="#work" data-k="a_go"></a>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="work" class="wrap" data-l="Projets">
-  <div class="sh mono"><span data-dec>[02]</span><span data-k="n_work"></span><i></i><span class="dim" data-k="w_h"></span></div>
+  <div class="sh mono"><span data-dec>[03]</span><span data-k="n_work"></span><i></i><span class="dim" data-k="w_h"></span></div>
   <h2 class="t gx" data-split data-k="w_t"></h2>
   <div class="pg">
     <div><ul class="pll" id="pll"></ul><div class="pbh"><a class="btn mono" href="https://www.behance.net/saili_design" target="_blank" rel="noopener" data-k="w_b"></a></div></div>
@@ -707,7 +826,7 @@ body{font-family:var(--b)}
 
 <!-- MOTION -->
 <section id="motion" class="wrap" data-l="Motion 2D">
-  <div class="sh mono"><span data-dec>[03]</span><span>Motion design</span><i></i><span class="dim" data-k="m_h"></span></div>
+  <div class="sh mono"><span data-dec>[04]</span><span>Motion design</span><i></i><span class="dim" data-k="m_h"></span></div>
   <h2 class="t gx" data-split>Keyframes</h2>
   <p class="lead rv" style="margin-top:18px" data-k="m_l"></p>
   <div class="comp">
@@ -743,7 +862,7 @@ body{font-family:var(--b)}
 <!-- PRINT + SOCIAL -->
 <section id="print" class="pap" data-l="Print + Social">
   <div class="wrap">
-    <div class="sh mono"><span data-dec>[04]</span><span>Print + Social</span><i></i><span class="dim" data-k="p_h"></span></div>
+    <div class="sh mono"><span data-dec>[05]</span><span>Print + Social</span><i></i><span class="dim" data-k="p_h"></span></div>
     <h2 class="t gx" data-split data-k="p_t"></h2>
     <div class="mg">
       <div>
@@ -766,44 +885,7 @@ body{font-family:var(--b)}
   </div>
 </section>
 
-<!-- ART DIRECTION -->
-<section id="ad" class="wrap" data-l="Art direction" data-takeover="#A9853F">
-  <div class="sh mono"><span data-dec>[05]</span><span data-k="n_ad"></span><i></i><span class="dim" data-k="a_h"></span></div>
-  <div class="adh">
-    <div>
-      <h2 class="t gx" data-split>Ankh Agency</h2>
-      <p class="lead rv" style="margin-top:18px" data-k="a_l"></p>
-    </div>
-    <svg id="aks" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0.00 0.00 100.00 148.00"><path fill="#A9853F" fill-rule="evenodd" transform="translate(0.00 0.00) scale(1.0000)" d="M48.77 3.03 L48.36 3.05 L47.96 3.08 L47.55 3.12 L47.14 3.16 L46.74 3.21 L46.33 3.27 L45.93 3.33 L45.52 3.40 L45.12 3.48 L44.72 3.56 L44.32 3.65 L43.93 3.75 L43.53 3.85 L43.14 3.96 L42.74 4.08 L42.35 4.20 L41.96 4.33 L41.58 4.46 L41.19 4.60 L40.81 4.75 L40.43 4.90 L40.06 5.06 L39.68 5.23 L39.31 5.40 L38.94 5.58 L38.58 5.76 L38.22 5.95 L37.86 6.15 L37.50 6.35 L37.15 6.56 L36.80 6.77 L36.45 6.99 L36.11 7.21 L35.77 7.44 L35.44 7.68 L35.11 7.92 L34.78 8.17 L34.46 8.42 L34.14 8.67 L33.83 8.94 L33.52 9.20 L33.21 9.48 L32.91 9.75 L32.61 10.04 L32.32 10.32 L32.04 10.61 L31.75 10.91 L31.48 11.21 L31.20 11.52 L30.94 11.83 L30.67 12.14 L30.42 12.46 L30.17 12.78 L29.92 13.11 L29.68 13.44 L29.44 13.77 L29.21 14.11 L28.99 14.45 L28.77 14.80 L28.56 15.15 L28.35 15.50 L28.15 15.86 L27.95 16.22 L27.76 16.58 L27.58 16.94 L27.40 17.31 L27.23 17.68 L27.06 18.06 L26.90 18.43 L26.75 18.81 L26.60 19.19 L26.46 19.58 L26.33 19.96 L26.20 20.35 L26.08 20.74 L25.96 21.14 L25.85 21.53 L25.75 21.93 L25.65 22.32 L25.56 22.72 L25.48 23.12 L25.40 23.52 L25.33 23.93 L25.27 24.33 L25.21 24.74 L25.16 25.14 L25.12 25.55 L25.08 25.96 L25.05 26.36 L25.03 26.77 L25.01 27.18 L25.00 27.59 L25.00 28.00 L25.00 28.41 L25.01 28.82 L25.03 29.23 L25.05 29.64 L25.08 30.04 L25.12 30.45 L25.16 30.86 L25.21 31.26 L25.27 31.67 L25.33 32.07 L25.40 32.48 L25.48 32.88 L25.56 33.28 L25.65 33.68 L25.75 34.07 L25.85 34.47 L25.96 34.86 L26.08 35.26 L26.20 35.65 L26.33 36.04 L26.46 36.42 L26.60 36.81 L26.75 37.19 L38.84 68.41 L38.91 68.59 L38.99 68.77 L39.07 68.95 L39.15 69.13 L39.24 69.31 L39.33 69.48 L39.42 69.66 L39.51 69.83 L39.61 70.00 L39.71 70.17 L39.81 70.34 L39.91 70.50 L40.02 70.67 L40.13 70.83 L40.25 70.99 L40.36 71.15 L40.48 71.31 L40.60 71.46 L40.72 71.61 L40.85 71.76 L40.98 71.91 L41.11 72.06 L41.24 72.20 L41.38 72.35 L41.51 72.49 L41.65 72.62 L41.80 72.76 L41.94 72.89 L42.09 73.02 L42.24 73.15 L42.39 73.28 L42.54 73.40 L42.69 73.52 L42.70 73.52 L4.00 71.00 L4.00 91.00 L42.93 88.46 L40.00 148.00 L60.00 148.00 L57.07 88.46 L96.00 91.00 L96.00 71.00 L57.30 73.52 L57.31 73.52 L57.46 73.40 L57.61 73.28 L57.76 73.15 L57.91 73.02 L58.06 72.89 L58.20 72.76 L58.35 72.62 L58.49 72.49 L58.62 72.35 L58.76 72.20 L58.89 72.06 L59.02 71.91 L59.15 71.76 L59.28 71.61 L59.40 71.46 L59.52 71.31 L59.64 71.15 L59.75 70.99 L59.87 70.83 L59.98 70.67 L60.09 70.50 L60.19 70.34 L60.29 70.17 L60.39 70.00 L60.49 69.83 L60.58 69.66 L60.67 69.48 L60.76 69.31 L60.85 69.13 L60.93 68.95 L61.01 68.77 L61.09 68.59 L61.16 68.41 L73.25 37.19 L73.40 36.81 L73.54 36.42 L73.67 36.04 L73.80 35.65 L73.92 35.26 L74.04 34.86 L74.15 34.47 L74.25 34.07 L74.35 33.68 L74.44 33.28 L74.52 32.88 L74.60 32.48 L74.67 32.07 L74.73 31.67 L74.79 31.26 L74.84 30.86 L74.88 30.45 L74.92 30.04 L74.95 29.64 L74.97 29.23 L74.99 28.82 L75.00 28.41 L75.00 28.00 L75.00 27.59 L74.99 27.18 L74.97 26.77 L74.95 26.36 L74.92 25.96 L74.88 25.55 L74.84 25.14 L74.79 24.74 L74.73 24.33 L74.67 23.93 L74.60 23.52 L74.52 23.12 L74.44 22.72 L74.35 22.32 L74.25 21.93 L74.15 21.53 L74.04 21.14 L73.92 20.74 L73.80 20.35 L73.67 19.96 L73.54 19.58 L73.40 19.19 L73.25 18.81 L73.10 18.43 L72.94 18.06 L72.77 17.68 L72.60 17.31 L72.42 16.94 L72.24 16.58 L72.05 16.22 L71.85 15.86 L71.65 15.50 L71.44 15.15 L71.23 14.80 L71.01 14.45 L70.79 14.11 L70.56 13.77 L70.32 13.44 L70.08 13.11 L69.83 12.78 L69.58 12.46 L69.33 12.14 L69.06 11.83 L68.80 11.52 L68.52 11.21 L68.25 10.91 L67.96 10.61 L67.68 10.32 L67.39 10.04 L67.09 9.75 L66.79 9.48 L66.48 9.20 L66.17 8.94 L65.86 8.67 L65.54 8.42 L65.22 8.17 L64.89 7.92 L64.56 7.68 L64.23 7.44 L63.89 7.21 L63.55 6.99 L63.20 6.77 L62.85 6.56 L62.50 6.35 L62.14 6.15 L61.78 5.95 L61.42 5.76 L61.06 5.58 L60.69 5.40 L60.32 5.23 L59.94 5.06 L59.57 4.90 L59.19 4.75 L58.81 4.60 L58.42 4.46 L58.04 4.33 L57.65 4.20 L57.26 4.08 L56.86 3.96 L56.47 3.85 L56.07 3.75 L55.68 3.65 L55.28 3.56 L54.88 3.48 L54.48 3.40 L54.07 3.33 L53.67 3.27 L53.26 3.21 L52.86 3.16 L52.45 3.12 L52.04 3.08 L51.64 3.05 L51.23 3.03 L50.82 3.01 L50.41 3.00 L50.00 3.00 L49.59 3.00 L49.18 3.01Z M58.40 27.27 L58.39 27.41 L58.38 27.55 L58.37 27.69 L58.36 27.82 L58.34 27.96 L58.33 28.10 L58.31 28.23 L58.29 28.37 L58.26 28.50 L58.24 28.64 L58.21 28.77 L58.18 28.91 L58.15 29.04 L58.11 29.17 L58.08 29.31 L58.04 29.44 L58.00 29.57 L57.95 29.70 L57.91 29.83 L57.86 29.96 L57.81 30.09 L57.76 30.21 L57.71 30.34 L57.65 30.47 L57.59 30.59 L57.53 30.72 L57.47 30.84 L57.41 30.96 L57.34 31.08 L57.27 31.20 L57.20 31.32 L57.13 31.44 L57.06 31.55 L56.98 31.67 L56.91 31.78 L56.83 31.89 L56.75 32.00 L56.66 32.11 L56.58 32.22 L56.49 32.33 L56.41 32.43 L56.32 32.54 L56.22 32.64 L56.13 32.74 L56.04 32.84 L55.94 32.94 L55.84 33.04 L55.74 33.13 L55.64 33.22 L55.54 33.32 L55.43 33.41 L55.33 33.49 L55.22 33.58 L55.11 33.66 L55.00 33.75 L54.89 33.83 L54.78 33.91 L54.67 33.98 L54.55 34.06 L54.44 34.13 L54.39 34.16 L56.60 58.00 L43.40 58.00 L45.61 34.16 L45.56 34.13 L45.45 34.06 L45.33 33.98 L45.22 33.91 L45.11 33.83 L45.00 33.75 L44.89 33.66 L44.78 33.58 L44.67 33.49 L44.57 33.41 L44.46 33.32 L44.36 33.22 L44.26 33.13 L44.16 33.04 L44.06 32.94 L43.96 32.84 L43.87 32.74 L43.78 32.64 L43.68 32.54 L43.59 32.43 L43.51 32.33 L43.42 32.22 L43.34 32.11 L43.25 32.00 L43.17 31.89 L43.09 31.78 L43.02 31.67 L42.94 31.55 L42.87 31.44 L42.80 31.32 L42.73 31.20 L42.66 31.08 L42.59 30.96 L42.53 30.84 L42.47 30.72 L42.41 30.59 L42.35 30.47 L42.29 30.34 L42.24 30.21 L42.19 30.09 L42.14 29.96 L42.09 29.83 L42.05 29.70 L42.00 29.57 L41.96 29.44 L41.92 29.31 L41.89 29.17 L41.85 29.04 L41.82 28.91 L41.79 28.77 L41.76 28.64 L41.74 28.50 L41.71 28.37 L41.69 28.23 L41.67 28.10 L41.66 27.96 L41.64 27.82 L41.63 27.69 L41.62 27.55 L41.61 27.41 L41.60 27.27 L41.60 27.14 L41.60 27.00 L41.60 26.86 L41.60 26.73 L41.61 26.59 L41.62 26.45 L41.63 26.31 L41.64 26.18 L41.66 26.04 L41.67 25.90 L41.69 25.77 L41.71 25.63 L41.74 25.50 L41.76 25.36 L41.79 25.23 L41.82 25.09 L41.85 24.96 L41.89 24.83 L41.92 24.69 L41.96 24.56 L42.00 24.43 L42.05 24.30 L42.09 24.17 L42.14 24.04 L42.19 23.91 L42.24 23.79 L42.29 23.66 L42.35 23.53 L42.41 23.41 L42.47 23.28 L42.53 23.16 L42.59 23.04 L42.66 22.92 L42.73 22.80 L42.80 22.68 L42.87 22.56 L42.94 22.45 L43.02 22.33 L43.09 22.22 L43.17 22.11 L43.25 22.00 L43.34 21.89 L43.42 21.78 L43.51 21.67 L43.59 21.57 L43.68 21.46 L43.78 21.36 L43.87 21.26 L43.96 21.16 L44.06 21.06 L44.16 20.96 L44.26 20.87 L44.36 20.78 L44.46 20.68 L44.57 20.59 L44.67 20.51 L44.78 20.42 L44.89 20.34 L45.00 20.25 L45.11 20.17 L45.22 20.09 L45.33 20.02 L45.45 19.94 L45.56 19.87 L45.68 19.80 L45.80 19.73 L45.92 19.66 L46.04 19.59 L46.16 19.53 L46.28 19.47 L46.41 19.41 L46.53 19.35 L46.66 19.29 L46.79 19.24 L46.91 19.19 L47.04 19.14 L47.17 19.09 L47.30 19.05 L47.43 19.00 L47.56 18.96 L47.69 18.92 L47.83 18.89 L47.96 18.85 L48.09 18.82 L48.23 18.79 L48.36 18.76 L48.50 18.74 L48.63 18.71 L48.77 18.69 L48.90 18.67 L49.04 18.66 L49.18 18.64 L49.31 18.63 L49.45 18.62 L49.59 18.61 L49.73 18.60 L49.86 18.60 L50.00 18.60 L50.14 18.60 L50.27 18.60 L50.41 18.61 L50.55 18.62 L50.69 18.63 L50.82 18.64 L50.96 18.66 L51.10 18.67 L51.23 18.69 L51.37 18.71 L51.50 18.74 L51.64 18.76 L51.77 18.79 L51.91 18.82 L52.04 18.85 L52.17 18.89 L52.31 18.92 L52.44 18.96 L52.57 19.00 L52.70 19.05 L52.83 19.09 L52.96 19.14 L53.09 19.19 L53.21 19.24 L53.34 19.29 L53.47 19.35 L53.59 19.41 L53.72 19.47 L53.84 19.53 L53.96 19.59 L54.08 19.66 L54.20 19.73 L54.32 19.80 L54.44 19.87 L54.55 19.94 L54.67 20.02 L54.78 20.09 L54.89 20.17 L55.00 20.25 L55.11 20.34 L55.22 20.42 L55.33 20.51 L55.43 20.59 L55.54 20.68 L55.64 20.78 L55.74 20.87 L55.84 20.96 L55.94 21.06 L56.04 21.16 L56.13 21.26 L56.22 21.36 L56.32 21.46 L56.41 21.57 L56.49 21.67 L56.58 21.78 L56.66 21.89 L56.75 22.00 L56.83 22.11 L56.91 22.22 L56.98 22.33 L57.06 22.45 L57.13 22.56 L57.20 22.68 L57.27 22.80 L57.34 22.92 L57.41 23.04 L57.47 23.16 L57.53 23.28 L57.59 23.41 L57.65 23.53 L57.71 23.66 L57.76 23.79 L57.81 23.91 L57.86 24.04 L57.91 24.17 L57.95 24.30 L58.00 24.43 L58.04 24.56 L58.08 24.69 L58.11 24.83 L58.15 24.96 L58.18 25.09 L58.21 25.23 L58.24 25.36 L58.26 25.50 L58.29 25.63 L58.31 25.77 L58.33 25.90 L58.34 26.04 L58.36 26.18 L58.37 26.31 L58.38 26.45 L58.39 26.59 L58.40 26.73 L58.40 26.86 L58.40 27.00 L58.40 27.14Z"/></svg>
-  </div>
-  <div class="adg">
-    <div class="cell c7 rv">
-      <div class="mono"><span>01 // Logo</span><span class="dim" data-k="a_lg"></span></div>
-      <div class="tabs mono" id="atb"></div>
-      <img class="adi" id="aim" src="media/a/03_logo_A.webp" width="1500" height="844" alt="ANKH Agency, pistes logo" loading="lazy">
-    </div>
-    <div class="cell c5 rv">
-      <div class="mono"><span>02 // Palette</span><span class="dim" data-k="a_pa"></span></div>
-      <div class="pal mono" id="pal"></div>
-    </div>
-    <div class="cell c5 rv">
-      <div class="mono"><span>03 // Type</span><span class="dim" data-k="a_ty"></span></div>
-      <div class="spc">
-        <div><strong style="font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800">ANKH</strong><span class="mono dim">Archivo Expanded</span></div>
-        <div><strong style="font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,3.3vw,52px)">BOOKING</strong><span class="mono dim">IBM Plex Mono</span></div>
-        <div><strong style="font-family:var(--i);font-style:italic">La maison de vie</strong><span class="mono dim">Instrument Serif</span></div>
-      </div>
-    </div>
-    <div class="cell c7 rv">
-      <div class="mono"><span>04 // <span data-k="a_su"></span></span><span class="dim">Print + Merch</span></div>
-      <img class="adi" src="media/a/06_supports_B.webp" width="1500" height="844" alt="ANKH Agency, supports" loading="lazy" id="asu" data-cur="NEXT">
-    </div>
-    <div class="cell c12 rv" style="margin-top:clamp(24px,5vh,60px)">
-      <div class="mono"><span>05 // <span data-k="a_cal"></span></span><span class="dim">Shield Run // Lettering + DA</span></div>
-      <div class="lgs" id="lgs"></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- IG LAB -->
 <section id="ig" class="wrap" data-l="IG Lab">
@@ -934,7 +1016,7 @@ if(FINE)document.documentElement.classList.add('fine');
 const I={fr:{
 n_work:'Travaux',n_ad:'Direction artistique',n_ref:'Clients',n_rev:'Avis',
 h_k:'Creative Designer // Design graphique, motion, direction artistique',
-h_lead:'Design et motion orientés <em>conversion</em>, <em>reach</em> et <em>identité</em>.',
+h_sk:'Mes compétences',h_play:'Jouez pour découvrir mes logiciels',h_lead:'Design et motion orientés <em>conversion</em>, <em>reach</em> et <em>identité</em>.',
 i_l:'[01] Impact // Shield Run + Shield Project',
 i_c:'Key visuals, affiches, reels et stories signés. Acquisition par l\'image, reach organique.',
 i1:'Billets vendus',i2:'Événements',i3:'Vues organiques, un seul compte',
@@ -946,7 +1028,7 @@ g_h:'R&D // Nouveaux formats',g_t:'Interactif natif',g_l:'Des expériences inter
 gs:['Carrousel','Flipbook','Focus artistes','R&D'],
 p_h:'Le Ferrailleur // Système complet',p_o:'Voir le projet [↗]',p_t:'Un master, toutes les surfaces',p_l:'Une DA déclinée <em>du feed à l\'imprimeur</em> : réseaux, A3, carte, sticker, bracelet.',p_s:'Passe la souris sur un print : décalage des plaques C / M / J // Affiches, flyers, menus, covers, packaging',
 pc:['Flyer A5','Packaging','Menu','Affiche'],
-a_h:'Identité complète // Palette, type, logo, système',a_l:'Identité de marque pour une agence de <em>booking techno</em>. De la recherche de logo au système Instagram.',a_lg:'3 pistes',a_pa:'7 tons',a_ty:'3 familles',a_su:'Supports',a_cal:'Lettrage + calligraphie',
+a_h:'Logo, palette, type, supports, formats',a_pj:'Projets',a_end:'Fin du projet',a_nx:'Projet suivant',a_go:'Continuer vers les travaux [↓]',a_sy:'Système',a_sn:'Clic = suivant',a_fm:'Un visuel, tous les formats',a_fn:'Print + Écran + Motion',a_tg0:'Étude de marque // Non commandée',a_tg1:'Projet client',a_l:'Identité de marque pour une agence de <em>booking techno</em>. De la recherche de logo au système Instagram.',a_lg:'3 pistes',a_pa:'7 tons',a_ty:'3 familles',a_su:'Supports',a_cal:'Lettrage + calligraphie',
 r_h:'Marques, clubs, festivals',r_w:'Et plein d\'autres clients venus du monde entier :',via:'Via agence',
 v_h:'Clients Fiverr // Texte original',v_b:'Voir le profil Fiverr [↗]',v_x:'Fermer [ESC]',
 s_n:'Logiciels',s_tt:'Logiciels maîtrisés',s_h:'Design + 3D + IA + Organisation',s_g:'Range-les dans le bon gobelet.',s_a:'Ranger pour moi',s_e:'Mauvais gobelet',s_w:'Tous maîtrisés',s_r:'Rejouer',s_cups:['Design graphique & Production & Motion design','3D','IA & New tech','Organisation & Projets'],s_t:'BAC // 18 logiciels',s_u:'Attrape + lâche',
@@ -966,7 +1048,7 @@ arc:{t:'Archive',s:'',r:'Posters, covers, CGI',d:'Une sélection de visuels réa
 },en:{
 n_work:'Work',n_ad:'Art direction',n_ref:'Clients',n_rev:'Reviews',
 h_k:'Creative Designer // Graphic design, motion, art direction',
-h_lead:'Design and motion built for <em>conversion</em>, <em>reach</em> and <em>identity</em>.',
+h_sk:'My skills',h_play:'Play to discover my software',h_lead:'Design and motion built for <em>conversion</em>, <em>reach</em> and <em>identity</em>.',
 i_l:'[01] Impact // Shield Run + Shield Project',
 i_c:'Signature key visuals, posters, reels and stories. Image-led acquisition, organic reach.',
 i1:'Tickets sold',i2:'Events',i3:'Organic views, one account',
@@ -978,7 +1060,7 @@ g_h:'R&D // New formats',g_t:'Native interactive',g_l:'Interactive experiences b
 gs:['Carousel','Flipbook','Artist focus','R&D'],
 p_h:'Le Ferrailleur // Full system',p_o:'See the project [↗]',p_t:'One master, every surface',p_l:'One art direction, carried <em>from the feed to the press</em>: social, A3, card, sticker, wristband.',p_s:'Hover a print: C / M / Y plate misregistration // Posters, flyers, menus, covers, packaging',
 pc:['A5 flyer','Packaging','Menu','Poster'],
-a_h:'Full identity // Palette, type, logo, system',a_l:'Brand identity for a <em>techno booking</em> agency. From logo exploration to the Instagram system.',a_lg:'3 routes',a_pa:'7 tones',a_ty:'3 families',a_su:'Collateral',a_cal:'Lettering + calligraphy',
+a_h:'Logo, palette, type, collateral, formats',a_pj:'Projects',a_end:'End of project',a_nx:'Next project',a_go:'Continue to the work [↓]',a_sy:'System',a_sn:'Click = next',a_fm:'One visual, every format',a_fn:'Print + Screen + Motion',a_tg0:'Brand study // Not commissioned',a_tg1:'Client project',a_l:'Brand identity for a <em>techno booking</em> agency. From logo exploration to the Instagram system.',a_lg:'3 routes',a_pa:'7 tones',a_ty:'3 families',a_su:'Collateral',a_cal:'Lettering + calligraphy',
 r_h:'Brands, clubs, festivals',r_w:'And many more clients from all over the world:',via:'Via agency',
 v_h:'Fiverr clients // Original text',v_b:'See Fiverr profile [↗]',v_x:'Close [ESC]',
 s_n:'Software',s_tt:'Software I master',s_h:'Design + 3D + AI + Organisation',s_g:'Drop each one in the right cup.',s_a:'Sort it for me',s_e:'Wrong cup',s_w:'All mastered',s_r:'Play again',s_cups:['Graphic design & Production & Motion design','3D','AI & New tech','Organisation & Projects'],s_t:'TRAY // 18 tools',s_u:'Grab + drop',
@@ -1028,7 +1110,7 @@ function watch(){$$('[data-split],.rv,.wp,[data-dec],.cell').forEach(el=>{if(!el
 /* ---------- SPOT COLOR ---------- */
 const SP=[['#FF4A12','#070707'],['#C6F000','#070707'],['#6A3CFF','#ffffff'],['#FF5FA8','#070707']];
 let spot=+(store.get('spot')||0);if(!SP[spot])spot=0;let tk=null;
-function setSpot(){const r=document.documentElement.style,c=tk?[tk,'#0C0B0A']:SP[spot];r.setProperty('--s',c[0]);r.setProperty('--si',c[1]);$$('#spots button').forEach((b,i)=>b.classList.toggle('a',i===spot))}
+function setSpot(){const r=document.documentElement.style,c=tk?[tk,typeof tki==='undefined'?'#0C0B0A':tki]:SP[spot];r.setProperty('--s',c[0]);r.setProperty('--si',c[1]);$$('#spots button').forEach((b,i)=>b.classList.toggle('a',i===spot))}
 SP.forEach((c,i)=>{const b=document.createElement('button');b.style.setProperty('--c0',c[0]);b.setAttribute('aria-label','Spot '+(i+1));b.dataset.cur='SPOT '+c[0];b.onclick=()=>{spot=i;store.set('spot',i);setSpot();flash()};$('#spots').append(b)});
 setSpot();
 
@@ -1060,15 +1142,17 @@ const WM=(()=>{const cv=$('#wm'),x=cv.getContext('2d');let off,low,tint,W=0,H=0,
 Object.assign(DIM,{"sym_car":[1080,1350],"sym_neon":[1080,1350],"sym_neon2":[1080,1350],"sym_cov":[1920,1080],"k_logo":[1920,1080],"k_story":[1080,1920],"k_tt":[2480,3508],"k_menu":[2480,3508],"k_rdr":[2480,3508],"k_focus":[1080,1920],"k_ev":[1086,1448],"ch_cover":[1920,1080],"ch_mars":[1080,1350],"ch_prog":[1080,1920],"ch_ph1":[2336,3115],"ch_ph2":[2336,3115],"ch_ph3":[2336,3115],"ch_ph4":[2336,3115],"ch_ph5":[2336,3115],"ch_ph6":[2336,3115],"ch_ph7":[2336,3115],"ch_ph8":[2336,3115],"k_card":[1400,906],"k_sticker":[1200,1200],"k_band":[1800,200],"k_star":[1080,1440]});
 Object.assign(DIM,{"f_a3a":[3508,4961],"f_a3b":[3508,4961],"f_cover":[1920,1080],"f_post":[1080,1440],"f_st1":[1080,1920],"f_st2":[1080,1920],"f_img":[1080,1440],"f_sticker":[1200,1200],"f_card":[1400,906],"f_band":[1800,200]});
 /* ---------- HERO ---------- */
-const mediaEl=id=>{const[t,n]=id.split(':');let e;if(t==='v'){e=document.createElement('video');e.muted=true;e.loop=true;e.playsInline=true;e.setAttribute('muted','');e.setAttribute('playsinline','');e.poster=MV+n+'.jpg';e.src=MV+n+'.mp4';e.play().catch(()=>{})}else if(t==='t'){e=document.createElement('div');e.className='tri';const vs=n.split(',').map(x=>{const v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.poster=MV+x+'.jpg';v.src=MV+x+'.mp4';v.play().catch(()=>{});e.append(v);return v});let a=0,to=0;const tk2=()=>{a=(a+1+(Math.random()*2|0))%vs.length;vs.forEach((v,i)=>v.classList.toggle('on',i===a));to=setTimeout(tk2,RM?1600:320+Math.random()*560)};vs[0].classList.add('on');to=setTimeout(tk2,420);e._stop=()=>{clearTimeout(to);vs.forEach(v=>v.pause())}}else{e=new Image();e.src=P_+n+'.webp';e.alt=''}e.classList.add('fm');return e};
+const mediaEl=id=>{const[t,n]=id.split(':');let e;if(t==='v'){e=document.createElement('video');e.muted=true;e.loop=true;e.playsInline=true;e.setAttribute('muted','');e.setAttribute('playsinline','');e.poster=MV+n+'.jpg';e.src=MV+n+'.mp4';e.play().catch(()=>{})}else if(t==='t'){e=document.createElement('div');e.className='tri';const vs=n.split(',').map(x=>{const v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.poster=MV+x+'.jpg';v.src=MV+x+'.mp4';v.play().catch(()=>{});e.append(v);return v});let a=0,to=0;const tk2=()=>{a=(a+1+(Math.random()*2|0))%vs.length;vs.forEach((v,i)=>v.classList.toggle('on',i===a));to=setTimeout(tk2,RM?1600:320+Math.random()*560)};vs[0].classList.add('on');to=setTimeout(tk2,420);e._stop=()=>{clearTimeout(to);vs.forEach(v=>v.pause())}}else if(t==='g'){e=document.createElement('div');e.className='tri g';const vs=n.split(',').map(x=>{const[a,r,l]=x.split('@'),d=document.createElement('div');d.className='gi';d.style.flex=r+' 1 0';const m=new Image();m.src=P_+a+'.webp';m.alt=l;m.style.aspectRatio=r;const c=document.createElement('span');c.className='mono';c.textContent=l;d.append(m,c);e.append(d);return d});let a=0,to=0;const tk2=()=>{a=(a+1+(Math.random()*2|0))%vs.length;vs.forEach((v,i)=>v.classList.toggle('on',i===a));to=setTimeout(tk2,RM?1600:420+Math.random()*560)};vs[0].classList.add('on');to=setTimeout(tk2,520);e._stop=()=>clearTimeout(to)}else if(t==='c'){e=document.createElement('div');e.className='cvy';const T=document.createElement('div');T.className='cvt';const C=document.createElement('div');C.className='cvc mono';e.append(T,C);const L_=POST.length,it=[...POST,...POST,...POST].map(p=>{const m=new Image();m.src=P_+p[0]+'.webp';m.alt=p[2];m.draggable=false;T.append(m);return m});let cen=[],i=L_,to=0,dead=false;const lay=()=>{const r=e.getBoundingClientRect();if(!r.width)return;const H=r.height*.9,W=r.width*.8,G=clamp(r.width*.035,10,34);let x=0;cen=it.map((m,k)=>{const q=POST[k%L_][1],h=Math.min(H,W/q),w=h*q;m.style.width=w+'px';m.style.height=h+'px';m.style.left=x+'px';const c=x+w/2;x+=w+G;return c})};const go=(anim=true)=>{if(!cen.length)return;T.style.transition=anim?'':'none';T.style.transform=`translate3d(${e.clientWidth/2-cen[i]}px,0,0)`;it.forEach((m,k)=>m.classList.toggle('on',k===i));const p=POST[i%L_];C.textContent=`${p[2]} // ${p[3]}`};const stp=()=>{if(dead)return;i++;go();if(i>=L_*2){setTimeout(()=>{if(dead)return;i-=L_;it.forEach(m=>m.style.transition='none');go(false);void T.offsetWidth;it.forEach(m=>m.style.transition='')},900)}to=setTimeout(stp,RM?2200:1500)};const ro=new ResizeObserver(()=>{lay();go(false)});ro.observe(e);to=setTimeout(stp,1300);e._stop=()=>{dead=true;clearTimeout(to);ro.disconnect()}}else{e=new Image();e.src=P_+n+'.webp';e.alt=''}e.classList.add('fm');return e};
 function pix(host){if(RM)return;const r=host.getBoundingClientRect();if(!r.width)return;const S=clamp(r.width/20,14,36),nx=Math.ceil(r.width/S),ny=Math.ceil(r.height/S),c=document.createElement('canvas');c.width=nx;c.height=ny;c.className='pxc';host.append(c);const x=c.getContext('2d'),sp=getComputedStyle(document.documentElement).getPropertyValue('--s').trim();x.fillStyle='#070707';x.fillRect(0,0,nx,ny);
  const cells=[...Array(nx*ny).keys()];for(let i=cells.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[cells[i],cells[j]]=[cells[j],cells[i]]}let k=0;const st=Math.ceil(cells.length/9);const t=setInterval(()=>{for(let i=0;i<st&&k<cells.length;i++,k++){const id=cells[k],a=id%nx,b=id/nx|0;x.clearRect(a,b,1,1);if(Math.random()<.16){const id2=cells[Math.min(cells.length-1,k+st+(Math.random()*st|0))];x.fillStyle=sp;x.fillRect(id2%nx,id2/nx|0,1,1)}}if(k>=cells.length){clearInterval(t);c.remove()}},42)}
 function frameSet(host,id){$$('.fm',host).forEach(o=>{o._stop&&o._stop();o.pause&&o.pause();o.remove()});host.prepend(mediaEl(id));pix(host)}
-const DIS=[['Art direction','p:cirque_cover','La Chaumière // Tribe & Cirque'],['CGI & VFX','v:ruines','CO2 Club // Ruines'],['2D & 3D Motion Design','v:corps','Shield Run // Corps possédé'],['Video making','t:dl_php,aftermovie,dl_cos','Video making // Montages'],['Visual print','p:parfum_grid','Elixir Prestige // Catalogue'],['Poster + Covers','p:burger_poster','4 Blooms // Halloween'],['Logo + Brand identity','p:ankh_ident','ANKH Agency // Identité'],['Social content','p:st_ketting','NOCT // Focus Ketting Live']];
+const POST=[["pc_01",0.8,"Anomaly","4:5"],["pc_02",0.8,"Haiti Meets Africa","4:5"],["pc_03",1.7778,"Psyche Switch","16:9"],["pc_04",0.75,"Lostravezz","3:4"],["pc_05",0.5625,"Sommerlicht","9:16"],["pc_06",1.0,"Factory Rave","1:1"],["pc_07",0.8,"Le Klub","4:5"],["pc_08",0.8,"20 Jahre Ja","4:5"],["pc_09",1.7778,"Haiti Meets Africa","16:9"],["pc_10",0.8,"Big Room Techno","4:5"],["pc_11",1.0,"Kurzschluss","1:1"],["pc_12",0.75,"Eclipse","3:4"],["pc_13",0.5625,"Lostravezz","9:16"],["pc_14",0.7048,"Hard Groove","A5"],["pc_15",0.75,"Psyche Switch","3:4"],["pc_16",1.0,"Solux","1:1"]];
+const DIS=[['Art direction','v:da_bl','4 Blooms // (normalmente)',10000],['Brand identity','v:id_ch','La Chaumière // La maison change de saison',8000],['Logo design','v:lg_sr','Shield Run // Du tracé au signe',7000],['2D Motion design','v:kt_mo','Motion // Courbes + kinetic type',8000],['Video making','t:dl_php,aftermovie,dl_cos','Video making // Montages',5000],['Visual print','p:parfum_table','Elixir Prestige // Catalogue imprimé',4500],['Poster + Covers','c:post','Shield Run + Fiverr // Affiches, tous formats',15000],['Social content','g:ch_sMars@.5625@Story,bl_sDog@.8@Post,bl_social@1@Feed,ch_sOct@.5625@Story','La Chaumière + 4 Blooms // Story, post, feed',5000],['CGI & VFX','v:ruines','CO2 Club // Ruines',5000]];
 $('#dl').innerHTML=DIS.map((d,i)=>`<li data-i="${i}"><button data-cur="${d[2].split(' //')[0].toUpperCase()}"><span>${d[0]}</span><span>${String(i+1).padStart(2,'0')}</span></button></li>`).join('');
 let hi=0,hHold=false,hVis=true;
-function disShow(i){hi=i;frameSet($('#hfr'),DIS[i][1]);$$('#dl li').forEach((l,j)=>l.classList.toggle('a',j===i));dec($('#hcap'),DIS[i][2],360);$('#hnum').textContent=String(i+1).padStart(2,'0')+' / 08'}
-function heroStart(){disShow(0);setInterval(()=>{if(!hHold&&hVis&&!vwOpen&&!document.hidden)disShow((hi+1)%DIS.length)},3800);new IntersectionObserver(es=>hVis=es[0].isIntersecting).observe($('#hero'));
+function disShow(i){hi=i;frameSet($('#hfr'),DIS[i][1]);$$('#dl li').forEach((l,j)=>l.classList.toggle('a',j===i));dec($('#hcap'),DIS[i][2],360);$('#hnum').textContent=String(i+1).padStart(2,'0')+' / '+String(DIS.length).padStart(2,'0')}
+let hTo=0;function hNext(){clearTimeout(hTo);hTo=setTimeout(()=>{if(!hHold&&hVis&&!vwOpen&&!document.hidden)disShow((hi+1)%DIS.length);hNext()},DIS[hi][3]||3800)}
+function heroStart(){disShow(0);hNext();new IntersectionObserver(es=>hVis=es[0].isIntersecting).observe($('#hero'));
  const li=$('#dl');li.addEventListener('pointerover',e=>{const l=e.target.closest('li');if(!l||e.pointerType==='touch')return;hHold=true;if(+l.dataset.i!==hi)disShow(+l.dataset.i)});li.addEventListener('pointerleave',()=>hHold=false);li.addEventListener('click',e=>{const l=e.target.closest('li');if(l&&+l.dataset.i!==hi)disShow(+l.dataset.i)});li.addEventListener('focusin',e=>{const l=e.target.closest('li');if(l&&+l.dataset.i!==hi)disShow(+l.dataset.i)})}
 const cb=['#00AEEF','#EC008C','#FFF200','#070707','#ECE9E1','var(--s)'];
 $('#cbars').innerHTML=cb.map(c=>`<i style="background:${c}"></i>`).join('');
@@ -1078,7 +1162,7 @@ barcode($('#bc1'));
 /* ---------- IMPACT ---------- */
 const IM={n:[30000,50,500000],pre:['+','~','+']};let imS=-1;
 ['landscape-1','landscape-2','landscape-3'].forEach((n,i)=>{const m=new Image();m.src=FULL+n+'.jpg';m.alt='';m.loading='lazy';$('#imbg').append(m)});
-$('#strip').innerHTML=['cirque_poster','sym_car','noct_ketting','a_pride','k_poster','a_42','noct_nox','a_soho','cirque_nurse','a_sr','noct_azdat','sym_neon','cirque_focus','noct_maxim'].map(n=>`<img src="${TH}${n}.webp" alt="" loading="lazy" width="${DIM[n]?.[0]||1}" height="${DIM[n]?.[1]||1}">`).join('');
+$('#strip').innerHTML=['Le Ferrailleur','Macadam','La Chaumière','Kardinal','NOCT','211','CO2 Club','Night Birds','Shield Run','Le Ferrailleur','Macadam','La Chaumière','Kardinal','NOCT','211','CO2 Club','Night Birds','Shield Run'].map(n=>`<span>${n}</span>`).join('');
 const fmt=n=>{const s=Math.round(n).toLocaleString('en-US');return L==='fr'?s.replace(/,/g,' '):s};
 function fitNum(t){const n=$('#num'),g=parseFloat(getComputedStyle($('#im')).paddingLeft)*2;n.style.fontSize='100px';n.textContent=t;n.style.display='inline-block';const w=n.offsetWidth;n.style.display='';n.style.fontSize=Math.min(innerHeight*.5,100*(innerWidth-g)/w*.99)+'px'}
 function impact(){const el=$('#impact'),r=el.getBoundingClientRect(),tot=el.offsetHeight-innerHeight;if(r.top>innerHeight||r.bottom<0)return;
@@ -1088,9 +1172,9 @@ function impact(){const el=$('#impact'),r=el.getBoundingClientRect(),tot=el.offs
  const st=$('#strip');st.style.transform=`translateX(${-p*Math.max(0,st.scrollWidth-innerWidth)}px)`}
 
 /* ---------- PROJECTS ---------- */
-const PJ={sr:{hold:9000,m:['v:reel_sr','v:holo','v:corps','p:sr_led','p:sr_planche','p:sr_chrome','p:sr_holo']},bl:{m:['v:burger_anim','v:burger_intro','v:burger_story','p:burger_poster','p:burger_flyer','p:burger_prog','p:burger_pstory']},ci:{hold:12000,m:['v:reel_ch','v:ch_mars_v','v:ch_mai','v:ch_juin','v:cirque','p:cirque_cover','p:ch_cover','p:ch_mars','p:cirque_poster','p:cirque_story','p:cirque_focus','p:ch_prog','p:cirque_nurse','p:ch_ph1','p:ch_ph2','p:ch_ph3','p:ch_ph4','p:ch_ph5','p:ch_ph6','p:ch_ph7','p:ch_ph8']},gl:{m:['v:prism','v:pyramid','p:g_prism','p:g_pyr','p:g_blocks']},sy:{m:['v:sym_cover','v:sym_sq','p:sym_car','p:sym_neon','p:sym_neon2','p:sym_cov']},no:{seq:'v:noct_loop',after:3200,hold:11000,m:['v:ketting','v:noct_loop','v:azdat','p:noct_ketting','p:noct_nox','p:noct_azdat','p:noct_draktar','p:noct_maxim','p:st_ketting','p:st_nox','p:st_azdat','p:st_maxim']},ka:{m:['v:kardinal','p:k_logo','p:k_poster','p:k_story','p:k_text','p:k_focus','p:k_ev','p:k_tt','p:k_menu','p:k_rdr']},fe:{m:['v:f_reel','p:f_a3a','p:f_a3b','p:f_cover','p:f_post','p:f_st1','p:f_st2','p:f_card','p:f_sticker','p:f_band']},an:{m:['p:ankh_ident','p:01_couverture','p:03_logo_A','p:05_logo_B','p:07_logo_C','p:06_supports_B','p:08_supports_C','p:09_palette','p:10_typographies']},arc:{m:[]}};
-const ORD=['sr','bl','ci','gl','sy','no','an'];let prA=0,prHold=false,prVis=false,prOn=false,prT=0,prSeqT=0;
-function renderProjects(){$('#pll').innerHTML=ORD.map((k,i)=>{const P=I[L].P[k];return `<li><button class="pr ${i===prA?'a':''}" data-i="${i}" data-cur="${I[L].open}"><span class="mono">${String(i+1).padStart(2,'0')}</span><strong>${P.t}</strong><span class="mono dim">${P.s}</span><span class="mono">[↗]</span></button></li>`}).join('');prCap()}
+const PJ={sr:{hold:9000,m:['v:reel_sr','v:corps','p:sr_led']},bl:{m:['v:burger_anim','v:burger_story','p:burger_poster','p:burger_prog','p:burger_pstory']},ci:{hold:12000,m:['v:reel_ch','v:ch_mars_v','v:ch_mai','v:ch_juin','v:cirque','p:cirque_cover','p:ch_cover','p:ch_mars','p:cirque_story','p:cirque_focus','p:ch_prog','p:cirque_nurse','p:ch_ph1','p:ch_ph2','p:ch_ph3','p:ch_ph4','p:ch_ph5','p:ch_ph6','p:ch_ph7','p:ch_ph8']},gl:{m:['v:prism','v:pyramid','p:g_prism','p:g_pyr','p:g_blocks']},sy:{m:['v:sym_cover','v:sym_sq','p:sym_car','p:sym_neon','p:sym_cov']},no:{seq:'v:noct_loop',after:3200,hold:11000,m:['v:ketting','v:noct_loop','v:azdat','p:noct_ketting','p:noct_nox','p:noct_azdat','p:noct_draktar','p:noct_maxim','p:st_ketting','p:st_nox','p:st_azdat','p:st_maxim']},ka:{m:['v:kardinal','p:k_logo','p:k_poster','p:k_story','p:k_text','p:k_focus','p:k_ev','p:k_tt','p:k_menu','p:k_rdr']},fe:{m:['v:f_reel','p:f_a3a','p:f_a3b','p:f_cover','p:f_post','p:f_st1','p:f_st2','p:f_card','p:f_sticker','p:f_band']},an:{m:['p:ankh_ident','p:01_couverture','p:03_logo_A','p:05_logo_B','p:07_logo_C','p:06_supports_B','p:08_supports_C','p:09_palette','p:10_typographies']},arc:{m:[]}};
+const ORD=['sr','bl','ci','gl','sy','no'];let prA=0,prHold=false,prVis=false,prOn=false,prT=0,prSeqT=0;
+function renderProjects(){if(window.__br)brandShow(brI);$('#pll').innerHTML=ORD.map((k,i)=>{const P=I[L].P[k];return `<li><button class="pr ${i===prA?'a':''}" data-i="${i}" data-cur="${I[L].open}"><span class="mono">${String(i+1).padStart(2,'0')}</span><strong>${P.t}</strong><span class="mono dim">${P.s}</span><span class="mono">[↗]</span></button></li>`}).join('');prCap()}
 function prCap(){const P=I[L].P[ORD[prA]];dec($('#pcap'),P.t+' // '+P.r,320);$('#pnum').textContent=String(prA+1).padStart(2,'0')+' / '+String(ORD.length).padStart(2,'0')}
 function prArm(){clearTimeout(prT);prT=setTimeout(()=>{if(prVis&&!prHold&&!vwOpen&&!document.hidden)prShow((prA+1)%ORD.length);else prArm()},PJ[ORD[prA]].hold||5200)}
 function prShow(i){prA=i;clearTimeout(prSeqT);const Q=PJ[ORD[i]];frameSet($('#pvf'),Q.m[0]);if(Q.seq)prSeqT=setTimeout(()=>{if(prA===i)frameSet($('#pvf'),Q.seq)},Q.after||3200);$$('.pr').forEach((b,j)=>b.classList.toggle('a',j===i));prCap();prArm()}
@@ -1098,7 +1182,7 @@ const pll=$('#pll');pll.addEventListener('pointerover',e=>{const b=e.target.clos
 new IntersectionObserver(es=>{prVis=es[0].isIntersecting;if(prVis&&!prOn){prOn=true;prShow(0)}$$('video',$('#pvf')).forEach(v=>prVis?v.play().catch(()=>{}):v.pause())},{threshold:.05}).observe($('#pvf'));
 
 /* ---------- PLANCHE ---------- */
-const AR={po:['a_pride','a_42','a_lost','a_college','a_barbosa','a_ren','a_sr','a_art','a_tri','a_soho','a_abs','a_dream','a_move','a_eph','a_soho2','sym_neon2'],cg:['a_church','undrgrnd','nb_wide','co2_cover']};
+const AR={po:['a_pride','a_42','a_college','a_barbosa','a_ren','a_sr','a_art','a_tri','a_soho','a_abs','a_dream','a_move','a_eph','a_soho2','sym_neon2'],cg:['a_church','undrgrnd','nb_wide','co2_cover']};
 const pl=$('#pl'),plw=$('#plw');let its=[],WW=1,WH=1,ox=0,oy=0,vx=.28,vy=.12,drag=null,cwv=300,filt='all',plVis=false,moved=false,arList=[];
 function shuffleArr(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
 function layout(){const vw=pl.clientWidth,vh=pl.clientHeight;cwv=clamp(vw*.16,140,270);const gap=cwv*.1;const cols=Math.max(3,Math.ceil((vw+cwv*2)/(cwv+gap)));
@@ -1198,16 +1282,39 @@ function renderPrint(){$('#prg').innerHTML=PRN.map((n,i)=>{const d=DIM[n]||[4,5]
  $$('.prf').forEach(f=>{const c=$('.cmj',f);f.onmousemove=e=>{const r=c.getBoundingClientRect();const dx=((e.clientX-r.left)/r.width-.5)*26,dy=((e.clientY-r.top)/r.height-.5)*26;c.style.setProperty('--dx',dx+'px');c.style.setProperty('--dy',dy+'px')};f.onmouseleave=()=>{c.style.setProperty('--dx','0px');c.style.setProperty('--dy','0px')}})}
 
 /* ---------- ART DIRECTION ---------- */
-const TB=[['A // La Clé','03_logo_A'],['B // Le Cartouche','05_logo_B'],['C // Le Bloc','07_logo_C'],['3 pistes','02_propositions'],['Cover','01_couverture']];
-$('#atb').innerHTML=TB.map((t,i)=>`<button data-i="${i}" class="${i?'':'a'}">${t[0]}</button>`).join('');
-$('#atb').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#atb button').forEach(q=>q.classList.toggle('a',q===b));const im=$('#aim');im.classList.remove('swap');void im.offsetWidth;im.src='media/a/'+TB[+b.dataset.i][1]+'.webp';im.classList.add('swap')});
-const PAL=[['Obsidienne','#0C0B0A','#E8DFCC'],['Basalte','#191714','#E8DFCC'],['Lapis','#19213A','#E8DFCC'],['Or sombre','#A9853F','#0C0B0A'],['Or clair','#C9A867','#0C0B0A'],['Cuivre','#A3471D','#E8DFCC'],['Papyrus','#E8DFCC','#0C0B0A']];
-$('#pal').innerHTML=PAL.map((p,i)=>`<div style="background:${p[1]};color:${p[2]};--n:${i}${i<2?';outline:1px solid var(--l);outline-offset:-1px':''}"><span>${p[0]} ${p[1]}</span></div>`).join('');
-const SUP=['06_supports_B','08_supports_C'];let supI=0;$('#asu').onclick=()=>{supI=(supI+1)%SUP.length;const im=$('#asu');im.classList.remove('swap');void im.offsetWidth;im.src='media/a/'+SUP[supI]+'.webp';im.classList.add('swap')};
-$('#lgs').innerHTML=['sr_t3','sr_t2','sr_4','sr_t1'].map(n=>`<div data-cur="LOGO"><img src="media/l/${n}.webp" alt="Shield Run" loading="lazy"></div>`).join('');
-const ak=$('#aks');if(ak){$$('path',ak).forEach(p=>p.setAttribute('pathLength','1'));io.observe(ak)}
+const BR=[
+{k:'bl',n:'4 Blooms',c:'#34AA28',ci:'#0C0B0A',tg:0,fr:'Une marque qui parle comme son menu. Le concept part de ses propres mots : <em>(normalmente) excelentes</em>.',en:'A brand that talks like its menu. The idea comes from its own words: <em>(normalmente) excelentes</em>.',lg:[['Logo','bl_logo']],pal:[['Vert Bloom','#34AA28','#fff'],['Forêt','#0E3B12','#F3ECDC'],['Crème','#F3ECDC','#111310'],['Moutarde','#F5B21A','#111310'],['Tomate','#E4472B','#fff'],['Nuit','#111310','#F3ECDC']],ty:'bl_type',tyc:'Built Titling + Futura',sy:'bl_system',syc:'Damier, étoile, étages, trame',su:['bl_pack','bl_paper'],fm:[[['A2','420×594 mm','bl_fA2',1190,1684],['Post','1080×1350','bl_fPost',1080,1350],['Story','1080×1920','bl_fStory',1080,1920],['Motion','4:5','v:bl_id',720,900]],[['Cover','1920×1080','bl_fCover',1920,1080],['Affichage','3:1','bl_fBill',2400,800]]]},
+{k:'ch',n:'La Chaumière',c:'#FF5A87',ci:'#14121C',tg:0,fr:'Un logo, une maison, <em>une saison par affiche</em>. La façade change, l’adresse reste.',en:'One logo, one house, <em>one season per poster</em>. The façade changes, the address stays.',lg:[['Logo','ch_logo']],pal:[['Flamant','#FF5A87','#14121C'],['Soleil','#FFC42E','#14121C'],['Lagon','#14B8B0','#14121C'],['Indigo','#23267A','#FFF1D8'],['Crème','#FFF1D8','#14121C'],['Encre','#14121C','#FFF1D8']],ty:'ch_type',tyc:'Fraunces + Barlow',sy:'ch_system',syc:'La maison, 4 saisons',su:['ch_pack','ch_cup'],fm:[[['A2','420×594 mm','ch_fA2',1190,1684],['Post','1080×1350','ch_fPost',1080,1350],['Story','1080×1920','ch_fStory',1080,1920],['Motion','4:5','v:ch_id',720,900]],[['Cover','1920×1080','ch_fCover',1920,1080],['Bannière','24:7','ch_fBan',2400,700]]]},
+{k:'sr',n:'Shield Run',c:'#6A1FFF',ci:'#FFFFFF',tg:0,fr:'La cible devient le système. <em>Signal, trame LED, niveaux</em> : tout part du logo.',en:'The target becomes the system. <em>Signal, LED grid, levels</em>: everything starts from the logo.',lg:[['Logo','sr_logo']],pal:[['Violet Signal','#6A1FFF','#fff'],['Noir Salle','#07060C','#C7B3FF'],['Lavande LED','#C7B3FF','#07060C'],['Chrome','#D8DAE6','#07060C'],['Acide','#E6FF4A','#07060C'],['Blanc','#FFFFFF','#07060C']],ty:'sr_type',tyc:'Panchang + IBM Plex Mono',sy:'sr_system',syc:'LED, niveaux, recadrage',su:['sr_pack'],fm:[[['A2','420×594 mm','sr_fA2',1190,1684],['Post','1080×1350','sr_fPost',1080,1350],['Story','1080×1920','sr_fStory',1080,1920]],[['Cover','1920×1080','sr_fCover',1920,1080],['Mur LED','16:5','sr_fLed',2400,750]],[['Motion','16:5','v:sr_id',1280,400]]]},
+{k:'an',n:'Ankh Agency',c:'#A9853F',ci:'#0C0B0A',tg:1,fr:'Identité de marque pour une agence de <em>booking techno</em>. De la recherche de logo au système Instagram.',en:'Brand identity for a <em>techno booking</em> agency. From logo exploration to the Instagram system.',lg:[['A // La Clé','03_logo_A'],['B // Le Cartouche','05_logo_B'],['C // Le Bloc','07_logo_C'],['3 pistes','02_propositions']],pal:[['Obsidienne','#0C0B0A','#E8DFCC'],['Basalte','#191714','#E8DFCC'],['Lapis','#19213A','#E8DFCC'],['Or sombre','#A9853F','#0C0B0A'],['Or clair','#C9A867','#0C0B0A'],['Cuivre','#A3471D','#E8DFCC'],['Papyrus','#E8DFCC','#0C0B0A']],ty:'10_typographies',tyc:'Archivo + Plex Mono + Instrument',sy:'01_couverture',syc:'Couverture de charte',su:['06_supports_B','08_supports_C','04_supports_A'],fm:[[['Annonce','Instagram','11_ig_annonce',1500,844],['Résident','Instagram','12_ig_resident',1500,844]],[['Feed','Instagram','13_ig_feed',1500,844],['Palette','Charte','09_palette',1500,844]]]}];
+const SYE={bl:'Checker, star, stacks, halftone',ch:'The house, 4 seasons',sr:'LED, levels, crop',an:'Guidelines cover'},FE={Affichage:'Billboard','Bannière':'Banner','Mur LED':'LED wall',Annonce:'Announcement','Résident':'Resident',Charte:'Guidelines'};
+let brI=0,supI=0;const AD_='media/a/';let tki='#0C0B0A';
+const adVid=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else v.pause()}),{rootMargin:'120px'});
+function adFlash(el){el.classList.remove('swap');void el.offsetWidth;el.classList.add('swap')}
+function brandTx(){const b=BR[brI];$('#abl').innerHTML=b[L]||b.fr;$('#abt').textContent=I[L]['a_tg'+b.tg]}
+function brandShow(i,scroll){brI=i;supI=0;const b=BR[i],nx=BR[(i+1)%BR.length];$('#abe1').textContent=b.n;$('#abxn').textContent=nx.n;const ab=$('#abx');ab.style.setProperty('--c',nx.c);ab.style.setProperty('--ci',nx.ci);$('#abw').style.setProperty('--cc',b.c);$$('#abr button').forEach((q,j)=>{q.classList.toggle('a',j===i);q.setAttribute('aria-selected',j===i)});
+ $('#abn').textContent=b.n;brandTx();const ad=$('#ad');ad.dataset.takeover=b.c;ad.dataset.ink=b.ci;if(tk){tk=b.c;tki=b.ci;setSpot()}
+ $('#alc').textContent=b.lg.length>1?b.lg.length+(L==='en'?' routes':' pistes'):'';$('#apc').textContent=b.pal.length+(L==='en'?' tones':' tons');$('#atc').textContent=b.tyc;$('#asc').textContent=L==='en'?(SYE[b.k]||b.syc):b.syc;
+ const t=$('#atb');t.style.display=b.lg.length>1?'':'none';t.innerHTML=b.lg.map((x,j)=>`<button data-i="${j}" class="${j?'':'a'}">${x[0]}</button>`).join('');
+ const I_=(id,n)=>{const m=$(id);m.src=AD_+n+'.webp';m.alt=b.n};I_('#aim',b.lg[0][1]);I_('#aty',b.ty);I_('#asy',b.sy);I_('#asu',b.su[0]);
+ $('#asu').style.cursor=b.su.length>1?'':'default';
+ $('#pal').innerHTML=b.pal.map((p,j)=>`<div style="background:${p[1]};color:${p[2]};--n:${j};outline:1px solid var(--l);outline-offset:-1px"><span>${p[0]} ${p[1]}</span></div>`).join('');
+ const box=$('#afm');$$('video',box).forEach(v=>{adVid.unobserve(v);v.pause()});
+ box.innerHTML=b.fm.map(r=>`<div class="afr">${r.map(f=>{const ra=f[3]/f[4],lab=`<figcaption class="mono"><span>${L==='en'&&FE[f[0]]||f[0]}</span><span class="dim">${f[1]}</span></figcaption>`;const isV=f[2].startsWith('v:'),n=f[2].slice(2);return `<figure style="flex:${ra.toFixed(3)} 1 0">${isV?`<video muted loop playsinline preload="none" poster="${MV+n}.jpg" data-src="${MV+n}.mp4" style="aspect-ratio:${ra.toFixed(3)}"></video>`:`<img src="${AD_+f[2]}.webp" alt="${b.n}, ${f[0]}" loading="lazy" style="aspect-ratio:${ra.toFixed(3)}">`}${lab}</figure>`}).join('')}</div>`).join('');
+ $$('video',box).forEach(v=>{v.muted=true;adVid.observe(v)});adFlash($('#adg'));
+ if(scroll){const y=$('#ad .sh').getBoundingClientRect().bottom+scrollY-(parseFloat(getComputedStyle($('#abw')).top)||0);if(scrollY>y+2)scrollTo({top:y,behavior:'instant'})}abProg()}
+$('#abr').innerHTML=`<span class="abh" aria-hidden="true"><b data-k="a_pj"></b><u><i></i><i></i><i></i></u></span>`+BR.map((b,i)=>`<button role="tab" data-i="${i}" data-cur="${b.n.toUpperCase()}" style="--c:${b.c};--ci:${b.ci};--n:${i}"><i></i><span>${b.n}</span><em aria-hidden="true"></em></button>`).join('');
+function abProg(){const r=$('#ad').getBoundingClientRect(),H=r.height-innerHeight*.6;$('#abp').style.transform=`scaleX(${clamp(-r.top/H,0,1).toFixed(3)})`}
+let abT=0;addEventListener('scroll',()=>{if(abT)return;abT=requestAnimationFrame(()=>{abT=0;abProg()})},{passive:true});
+$('#abx').addEventListener('click',()=>brandShow((brI+1)%BR.length,true));
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();BR.forEach(b=>[...b.lg.map(x=>x[1]),b.ty,b.sy,...b.su,...b.fm.flat().filter(f=>!f[2].startsWith('v:')).map(f=>f[2])].forEach(n=>{const m=new Image();m.src=AD_+n+'.webp'}))}},{rootMargin:'1400px'}).observe($('#ad'));
+setTimeout(()=>POST.forEach(p=>{const m=new Image();m.src=P_+p[0]+'.webp'}),3500);
+$('#abr').addEventListener('click',e=>{const q=e.target.closest('button');if(q&&+q.dataset.i!==brI)brandShow(+q.dataset.i,true)});
+$('#atb').addEventListener('click',e=>{const q=e.target.closest('button');if(!q)return;$$('#atb button').forEach(x=>x.classList.toggle('a',x===q));const im=$('#aim');adFlash(im);im.src=AD_+BR[brI].lg[+q.dataset.i][1]+'.webp'});
+$('#asu').addEventListener('click',()=>{const su=BR[brI].su;if(su.length<2)return;supI=(supI+1)%su.length;const im=$('#asu');adFlash(im);im.src=AD_+su[supI]+'.webp'});
+brandShow(0);window.__br=1;
 /* brand takeover */
-new IntersectionObserver(es=>{const e=es[0];tk=e.isIntersecting?e.target.dataset.takeover:null;setSpot()},{rootMargin:'-45% 0px -45% 0px'}).observe($('#ad'));
+new IntersectionObserver(es=>{const e=es[0];tk=e.isIntersecting?e.target.dataset.takeover:null;tki=e.target.dataset.ink||'#0C0B0A';setSpot()},{rootMargin:'-45% 0px -45% 0px'}).observe($('#ad'));
 
 /* ---------- CLIENTS ---------- */
 const CGS={'Elixir Prestige':1.5,'Shield Run':1.7};
