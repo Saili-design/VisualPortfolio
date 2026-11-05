@@ -1431,7 +1431,7 @@ function resizeAll(){WM.build();imS=-1;layout();setFm(fmI,1);gLayout();rMeasure(
 let rsT;addEventListener('resize',()=>{clearTimeout(rsT);rsT=setTimeout(resizeAll,160)});
 function start(){document.body.classList.remove('lock');resizeAll();setTimeout(tlBuild,800);addEventListener('load',tlBuild);heroStart();WM.hit(1);watch();
  $$('#hero [data-dec]').forEach(el=>{el._seen=1;io.unobserve(el);dec(el)});setTimeout(flashLoop,1800);setTimeout(glitchLoop,3000);if(location.hash){const t=$(location.hash);if(t)t.scrollIntoView()}}
-function chooseLang(l){L=l;applyLang(false);store.set('in','1',true);const g=$('#gate');g.classList.add('out');for(let i=0;i<4;i++)setTimeout(flash,i*90);
+function chooseLang(l){L=l;applyLang(false);const g=$('#gate');g.classList.add('out');for(let i=0;i<4;i++)setTimeout(flash,i*90);
  const bs=[...bandsEl.children];bandsEl.style.display='block';bs.forEach((b,i)=>{b.style.transition='none';b.style.transform='none'});g.style.background='transparent';g.style.pointerEvents='none';
  start();void bandsEl.offsetWidth;bs.forEach((b,i)=>{b.style.transition=`transform .5s steps(8) ${(i*37)%200}ms`;b.style.transform=`translateX(${i%2?-101:101}%)`});setTimeout(()=>{g.remove();bandsEl.style.display='none'},800)}
 
@@ -1440,7 +1440,7 @@ $$('#gate .gp').forEach(b=>{b.onclick=()=>chooseLang(b.dataset.l);b.dataset.cur=
 document.fonts.load('800 200px "Saira Extra Condensed"').catch(()=>{});
 Promise.race([Promise.all([document.fonts.load('800 200px "Saira Extra Condensed"'),document.fonts.ready]),new Promise(r=>setTimeout(r,2500))]).catch(()=>{}).then(()=>{requestAnimationFrame(loop);
  const qs=new URLSearchParams(location.search).get('lang');
- if(qs||store.get('in',true)){const g=$('#gate');g.remove();start()}
+ if(qs){const g=$('#gate');g.remove();start()}
  else{const b=$('#boot');const lines=['> LOAD KEYFRAMES ......... OK','> CMYK PLATES ............ OK','> SELECT LANGUAGE'];let i=0,acc='';(function nx(){if(i>=lines.length)return;acc+=(i?'\n':'')+lines[i];dec(b,acc,380);i++;setTimeout(nx,430)})();
   }
 });
